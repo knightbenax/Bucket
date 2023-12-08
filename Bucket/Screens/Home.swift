@@ -9,9 +9,12 @@ import SwiftUI
 
 struct Home: View {
     var body: some View {
-        VStack{
-            
-        }
+        ZStack(alignment: .bottom){
+            VStack{
+                
+            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            BottomNavBar()
+        }.background(Color("HomeBg"))
     }
 }
 

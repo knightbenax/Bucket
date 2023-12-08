@@ -9,10 +9,23 @@ import SwiftUI
 
 struct Standing: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: 10){
+            VStack(alignment: .leading){
+                Text("Pauline Lino")
+                Text("9")
+            }
+            ZStack(alignment: .center){
+                Circle().stroke(lineWidth: 1).frame(width: 36, height: 36)
+                Text("VS")
+            }
+            VStack(alignment: .trailing){
+                Text("Amos Tobi")
+                Text("67")
+            }
+        }.padding().background(Color.white).clipShape(RoundedRectangle(cornerRadius: 10)).shadow(radius: 5)
     }
 }
 
 #Preview {
-    Standing()
+    Standing().frame(maxWidth: 500)
 }
