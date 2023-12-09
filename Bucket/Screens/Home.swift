@@ -7,13 +7,23 @@
 
 import SwiftUI
 
+enum CURRENT_SCREEN {
+  case STANDINGS, STATS, PLAYERS
+}
+
 struct Home: View {
+    @State var currentScreen : CURRENT_SCREEN = .STANDINGS
+    
     var body: some View {
         ZStack(alignment: .bottom){
-            VStack{
-                
-            }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            BottomNavBar()
+            if (currentScreen == .STANDINGS){
+                Standings()
+            } else if (currentScreen == .STATS){
+                Stats()
+            } else {
+                Players()
+            }
+            BottomNavBar(currentScreen: $currentScreen)
         }.background(Color("HomeBg"))
     }
 }

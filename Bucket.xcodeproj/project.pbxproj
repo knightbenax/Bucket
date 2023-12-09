@@ -15,7 +15,7 @@
 		EF13B53F2B1E5FEA00F8A760 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF13B53E2B1E5FEA00F8A760 /* Assets.xcassets */; };
 		EF13B5422B1E5FEA00F8A760 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF13B5402B1E5FEA00F8A760 /* LaunchScreen.storyboard */; };
 		EF13B54F2B1E61A200F8A760 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13B54E2B1E61A200F8A760 /* Home.swift */; };
-		EF13B5522B1E62B500F8A760 /* Standing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13B5512B1E62B500F8A760 /* Standing.swift */; };
+		EF13B5522B1E62B500F8A760 /* SingleStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13B5512B1E62B500F8A760 /* SingleStanding.swift */; };
 		EF94BCF32B219C92005F52C5 /* StoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF22B219C92005F52C5 /* StoreHelper.swift */; };
 		EF94BCF52B22F7E8005F52C5 /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF42B22F7E8005F52C5 /* BottomNavBar.swift */; };
 		EF94BCF82B22FEB6005F52C5 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */; };
@@ -23,6 +23,9 @@
 		EF94BCFE2B23212A005F52C5 /* circular-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCFA2B23212A005F52C5 /* circular-book.ttf */; };
 		EF94BCFF2B23212A005F52C5 /* circular-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCFB2B23212A005F52C5 /* circular-bold.ttf */; };
 		EF94BD002B23212A005F52C5 /* circular-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCFC2B23212A005F52C5 /* circular-black.ttf */; };
+		EFEBC0122B2455F100841377 /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBC0112B2455F100841377 /* Standings.swift */; };
+		EFEBC0152B24574900841377 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBC0142B24574900841377 /* Stats.swift */; };
+		EFEBC0172B2457A100841377 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBC0162B2457A100841377 /* Players.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +40,7 @@
 		EF13B5432B1E5FEA00F8A760 /* Bucket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bucket.entitlements; sourceTree = "<group>"; };
 		EF13B5442B1E5FEA00F8A760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF13B54E2B1E61A200F8A760 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		EF13B5512B1E62B500F8A760 /* Standing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standing.swift; sourceTree = "<group>"; };
+		EF13B5512B1E62B500F8A760 /* SingleStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStanding.swift; sourceTree = "<group>"; };
 		EF94BCF22B219C92005F52C5 /* StoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreHelper.swift; sourceTree = "<group>"; };
 		EF94BCF42B22F7E8005F52C5 /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
 		EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
@@ -45,6 +48,9 @@
 		EF94BCFA2B23212A005F52C5 /* circular-book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-book.ttf"; sourceTree = "<group>"; };
 		EF94BCFB2B23212A005F52C5 /* circular-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-bold.ttf"; sourceTree = "<group>"; };
 		EF94BCFC2B23212A005F52C5 /* circular-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-black.ttf"; sourceTree = "<group>"; };
+		EFEBC0112B2455F100841377 /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
+		EFEBC0142B24574900841377 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		EFEBC0162B2457A100841377 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +134,8 @@
 		EF13B5502B1E62AA00F8A760 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EF13B5512B1E62B500F8A760 /* Standing.swift */,
+				EFEBC0132B24573B00841377 /* Sections */,
+				EF13B5512B1E62B500F8A760 /* SingleStanding.swift */,
 				EF94BCF42B22F7E8005F52C5 /* BottomNavBar.swift */,
 			);
 			path = Views;
@@ -153,6 +160,16 @@
 				EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EFEBC0132B24573B00841377 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				EFEBC0112B2455F100841377 /* Standings.swift */,
+				EFEBC0142B24574900841377 /* Stats.swift */,
+				EFEBC0162B2457A100841377 /* Players.swift */,
+			);
+			path = Sections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,10 +247,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFEBC0172B2457A100841377 /* Players.swift in Sources */,
 				EF13B5372B1E5FE900F8A760 /* ViewController.swift in Sources */,
+				EFEBC0152B24574900841377 /* Stats.swift in Sources */,
 				EF13B53D2B1E5FE900F8A760 /* Bucket.xcdatamodeld in Sources */,
 				EF13B54F2B1E61A200F8A760 /* Home.swift in Sources */,
-				EF13B5522B1E62B500F8A760 /* Standing.swift in Sources */,
+				EFEBC0122B2455F100841377 /* Standings.swift in Sources */,
+				EF13B5522B1E62B500F8A760 /* SingleStanding.swift in Sources */,
 				EF94BCF52B22F7E8005F52C5 /* BottomNavBar.swift in Sources */,
 				EF13B5332B1E5FE900F8A760 /* AppDelegate.swift in Sources */,
 				EF94BCF82B22FEB6005F52C5 /* FontsManager.swift in Sources */,
