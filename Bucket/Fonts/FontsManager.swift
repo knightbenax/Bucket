@@ -9,8 +9,10 @@ import Foundation
 
 class FontsManager {
     
-    static var regular = "TTInterfaces-Regular"
-    static var medium = "TTInterfaces-Medium"
-    static var bold = "TTInterfaces-Bold"
+    static var Regular = "circular-book"
+    static var Medium = "circular-medium"
+    static var Bold = "circular-bold"
+    static var Black = "CircularStd-Black"
     
 }
+

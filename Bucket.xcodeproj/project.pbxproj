@@ -19,6 +19,10 @@
 		EF94BCF32B219C92005F52C5 /* StoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF22B219C92005F52C5 /* StoreHelper.swift */; };
 		EF94BCF52B22F7E8005F52C5 /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF42B22F7E8005F52C5 /* BottomNavBar.swift */; };
 		EF94BCF82B22FEB6005F52C5 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */; };
+		EF94BCFD2B23212A005F52C5 /* circular-medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCF92B23212A005F52C5 /* circular-medium.ttf */; };
+		EF94BCFE2B23212A005F52C5 /* circular-book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCFA2B23212A005F52C5 /* circular-book.ttf */; };
+		EF94BCFF2B23212A005F52C5 /* circular-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCFB2B23212A005F52C5 /* circular-bold.ttf */; };
+		EF94BD002B23212A005F52C5 /* circular-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCFC2B23212A005F52C5 /* circular-black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		EF94BCF22B219C92005F52C5 /* StoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreHelper.swift; sourceTree = "<group>"; };
 		EF94BCF42B22F7E8005F52C5 /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
 		EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
+		EF94BCF92B23212A005F52C5 /* circular-medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-medium.ttf"; sourceTree = "<group>"; };
+		EF94BCFA2B23212A005F52C5 /* circular-book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-book.ttf"; sourceTree = "<group>"; };
+		EF94BCFB2B23212A005F52C5 /* circular-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-bold.ttf"; sourceTree = "<group>"; };
+		EF94BCFC2B23212A005F52C5 /* circular-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-black.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +146,10 @@
 		EF94BCF62B22FE76005F52C5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				EF94BCFC2B23212A005F52C5 /* circular-black.ttf */,
+				EF94BCFB2B23212A005F52C5 /* circular-bold.ttf */,
+				EF94BCFA2B23212A005F52C5 /* circular-book.ttf */,
+				EF94BCF92B23212A005F52C5 /* circular-medium.ttf */,
 				EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */,
 			);
 			path = Fonts;
@@ -201,8 +213,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF94BCFE2B23212A005F52C5 /* circular-book.ttf in Resources */,
 				EF13B5422B1E5FEA00F8A760 /* LaunchScreen.storyboard in Resources */,
 				EF13B53F2B1E5FEA00F8A760 /* Assets.xcassets in Resources */,
+				EF94BD002B23212A005F52C5 /* circular-black.ttf in Resources */,
+				EF94BCFD2B23212A005F52C5 /* circular-medium.ttf in Resources */,
+				EF94BCFF2B23212A005F52C5 /* circular-bold.ttf in Resources */,
 				EF13B53A2B1E5FE900F8A760 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -25,5 +25,12 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>circular-medium.ttf</string>
+		<string>circular-bold.ttf</string>
+		<string>circular-book.ttf</string>
+		<string>circular-black.ttf</string>
+	</array>
 </dict>
 </plist>
