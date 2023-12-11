@@ -25,6 +25,11 @@
 		EF94BCFF2B23212A005F52C5 /* circular-bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCFB2B23212A005F52C5 /* circular-bold.ttf */; };
 		EF94BD002B23212A005F52C5 /* circular-black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF94BCFC2B23212A005F52C5 /* circular-black.ttf */; };
 		EFE48C092B278804009970F8 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE48C082B278804009970F8 /* Match.swift */; };
+		EFE48C0C2B279E3E009970F8 /* PlayerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE48C0B2B279E3E009970F8 /* PlayerService.swift */; };
+		EFE48C0E2B279E5B009970F8 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE48C0D2B279E5B009970F8 /* BaseService.swift */; };
+		EFE48C102B279EBC009970F8 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE48C0F2B279EBC009970F8 /* AppConstants.swift */; };
+		EFE48C142B27B028009970F8 /* players.json in Resources */ = {isa = PBXBuildFile; fileRef = EFE48C132B27B028009970F8 /* players.json */; };
+		EFE48C162B27BEC6009970F8 /* SinglePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE48C152B27BEC6009970F8 /* SinglePlayer.swift */; };
 		EFEBC0122B2455F100841377 /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBC0112B2455F100841377 /* Standings.swift */; };
 		EFEBC0152B24574900841377 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBC0142B24574900841377 /* Stats.swift */; };
 		EFEBC0172B2457A100841377 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEBC0162B2457A100841377 /* Players.swift */; };
@@ -62,6 +67,11 @@
 		EF94BCFB2B23212A005F52C5 /* circular-bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-bold.ttf"; sourceTree = "<group>"; };
 		EF94BCFC2B23212A005F52C5 /* circular-black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "circular-black.ttf"; sourceTree = "<group>"; };
 		EFE48C082B278804009970F8 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		EFE48C0B2B279E3E009970F8 /* PlayerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerService.swift; sourceTree = "<group>"; };
+		EFE48C0D2B279E5B009970F8 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		EFE48C0F2B279EBC009970F8 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		EFE48C132B27B028009970F8 /* players.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = players.json; sourceTree = "<group>"; };
+		EFE48C152B27BEC6009970F8 /* SinglePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayer.swift; sourceTree = "<group>"; };
 		EFEBC0112B2455F100841377 /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		EFEBC0142B24574900841377 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		EFEBC0162B2457A100841377 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
@@ -93,7 +103,6 @@
 				BDB36F998402E6DE98D0FCAA /* Pods-Bucket.debug.xcconfig */,
 				9EBD9CFA597777A10DD5EDC7 /* Pods-Bucket.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -108,6 +117,7 @@
 		EF13B5262B1E5FE800F8A760 = {
 			isa = PBXGroup;
 			children = (
+				EFE48C132B27B028009970F8 /* players.json */,
 				EF13B5312B1E5FE900F8A760 /* Bucket */,
 				EF13B5302B1E5FE900F8A760 /* Products */,
 				77256450C75991BA5D2D50F6 /* Pods */,
@@ -164,7 +174,9 @@
 		EF13B54C2B1E617E00F8A760 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				EFE48C0A2B279CD9009970F8 /* Network */,
 				EF94BCF12B219C79005F52C5 /* DB */,
+				EFE48C0F2B279EBC009970F8 /* AppConstants.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -185,6 +197,7 @@
 				EF13B5512B1E62B500F8A760 /* SingleStanding.swift */,
 				EF94BCF42B22F7E8005F52C5 /* BottomNavBar.swift */,
 				EFF152152B277C5A00734211 /* EmptyView.swift */,
+				EFE48C152B27BEC6009970F8 /* SinglePlayer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +221,15 @@
 				EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EFE48C0A2B279CD9009970F8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EFE48C0B2B279E3E009970F8 /* PlayerService.swift */,
+				EFE48C0D2B279E5B009970F8 /* BaseService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		EFEBC0132B24573B00841377 /* Sections */ = {
@@ -308,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE48C142B27B028009970F8 /* players.json in Resources */,
 				EF94BCFE2B23212A005F52C5 /* circular-book.ttf in Resources */,
 				EF13B5422B1E5FEA00F8A760 /* LaunchScreen.storyboard in Resources */,
 				EF13B53F2B1E5FEA00F8A760 /* Assets.xcassets in Resources */,
@@ -371,6 +394,7 @@
 				EFF152182B277FA000734211 /* Stat.swift in Sources */,
 				EF13B5372B1E5FE900F8A760 /* ViewController.swift in Sources */,
 				EFF152072B2721E100734211 /* Bundle+releaseString.swift in Sources */,
+				EFE48C0E2B279E5B009970F8 /* BaseService.swift in Sources */,
 				EFF152042B27216A00734211 /* Settings.swift in Sources */,
 				EFF1520E2B2776DE00734211 /* Color+UIColor.swift in Sources */,
 				EFF152162B277C5A00734211 /* EmptyView.swift in Sources */,
@@ -382,9 +406,12 @@
 				EF13B5522B1E62B500F8A760 /* SingleStanding.swift in Sources */,
 				EF94BCF52B22F7E8005F52C5 /* BottomNavBar.swift in Sources */,
 				EF13B5332B1E5FE900F8A760 /* AppDelegate.swift in Sources */,
+				EFE48C162B27BEC6009970F8 /* SinglePlayer.swift in Sources */,
 				EF94BCF82B22FEB6005F52C5 /* FontsManager.swift in Sources */,
 				EFF1520A2B276FAF00734211 /* PlayersViewModel.swift in Sources */,
 				EF94BCF32B219C92005F52C5 /* StoreHelper.swift in Sources */,
+				EFE48C102B279EBC009970F8 /* AppConstants.swift in Sources */,
+				EFE48C0C2B279E3E009970F8 /* PlayerService.swift in Sources */,
 				EFF152112B27789F00734211 /* Player.swift in Sources */,
 				EF13B5352B1E5FE900F8A760 /* SceneDelegate.swift in Sources */,
 				EFE48C092B278804009970F8 /* Match.swift in Sources */,
@@ -542,6 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KPGYDGPJU8;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bucket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -573,6 +601,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KPGYDGPJU8;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bucket/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

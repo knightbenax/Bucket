@@ -1,13 +1,13 @@
 //
-//  Standing.swift
+//  SinglePlayer.swift
 //  Bucket
 //
-//  Created by Bezaleel Ashefor on 04/12/2023.
+//  Created by Bezaleel Ashefor on 11/12/2023.
 //
 
 import SwiftUI
 
-struct SingleStanding: View {
+struct SinglePlayer: View {
     var blockSize : CGFloat = 55
 
     var body: some View {
@@ -29,5 +29,5 @@ struct SingleStanding: View {
 }
 
 #Preview {
-    SingleStanding().frame(maxWidth: 400)
+    SinglePlayer()
 }

@@ -10,11 +10,13 @@ import SwiftUI
 struct Players: View {
     @State var showSettings = false
     @State var players = [Player]()
+    @State var headliner : String = ""
+    var playersViewModel = PlayersViewModel()
     
     var body: some View {
         VStack{
             HStack{
-                Text("Players - 32 Players. 10 Remaining").font(.custom(FontsManager.Bold, size: 20))
+                Text("Players\(headliner)").font(.custom(FontsManager.Bold, size: 20))
                 Spacer()
                 Button(action: {
                     showSettings.toggle()
@@ -24,15 +26,23 @@ struct Players: View {
             }
             VStack{
                 if (players.isEmpty){
-                    EmptyView(message: "There are no players yet. \nFetch players to get Bucket started")
+                    EmptyView(message: "There are no players yet. \nFetch players to get Bucket started", action: { fetchPlayers() })
                 } else {
-                    
+                    LazyVStack{
+                        
+                    }
                 }
             }
             Spacer()
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading).padding(30).sheet(isPresented: $showSettings){
             Settings()
+        }.onAppear{
+            players = playersViewModel.fetchPlayers()
         }
+    }
+    
+    func fetchPlayers(){
+        players = playersViewModel.addPlayersFromJSON()
     }
 }
 

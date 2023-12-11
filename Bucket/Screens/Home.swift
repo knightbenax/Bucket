@@ -31,3 +31,12 @@ struct Home: View {
 #Preview {
     Home()
 }
+
+
+class HomeHostingController: UIHostingController<Home> {
+    
+    @objc required dynamic init?(coder: NSCoder) {
+        super.init(coder: coder, rootView: Home())
+    }
+    
+}

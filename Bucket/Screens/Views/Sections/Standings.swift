@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import Drops
 
 struct Standings: View {
     @State var showSettings = false
     @State var matches = [Match]()
     var playerViewModel = PlayersViewModel()
+    @State var headliner : String = ""
+    @State var showLoader : Bool = false
     
     var body: some View {
         VStack{
             HStack(alignment: .center){
-                Text("Standings - 32 Players. 10 Remaining").font(.custom(FontsManager.Bold, size: 20))
+                Text("Standings\(headliner)").font(.custom(FontsManager.Bold, size: 20))
                 Spacer()
                 Button(action: {
                     showSettings.toggle()
@@ -24,9 +27,14 @@ struct Standings: View {
                 }
             }
             VStack{
-                if (matches.isEmpty){
-                    EmptyView(message: "There are no matches yet. \nStart the seeding to generate matches", button: "Seed", showButton: true)
+                if (matches.isEmpty && !showLoader){
+                    EmptyView(message: "There are no matches yet. \nStart the seeding to generate matches", button: "Seed", showButton: true, action: {
+                        startSeeding()
+                    })
                 } else {
+                    
+                }
+                if (showLoader){
                     
                 }
             }
@@ -39,7 +47,8 @@ struct Standings: View {
     func startSeeding(){
         let players = playerViewModel.fetchPlayers()
         if (players.isEmpty){
-            
+            let drop = Drop(title: "No players added yet")
+            Drops.show(drop)
         } else {
             
         }

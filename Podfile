@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '16.0'
+# platform :ios, '9.0'
 
 target 'Bucket' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,5 +7,6 @@ target 'Bucket' do
 
   # Pods for Bucket
     pod 'Drops', :git => 'https://github.com/omaralbeik/Drops.git', :tag => '1.7.0'
+    pod 'Alamofire'
 
 end
