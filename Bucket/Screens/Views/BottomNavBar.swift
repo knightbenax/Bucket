@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct BottomNavBar: View {
-    var verticalPadding : CGFloat = 9
+    var verticalPadding : CGFloat = 10
     var topPadding : CGFloat = 0.5
     @Binding var currentScreen : CURRENT_SCREEN
     @State var offsetValue : CGFloat = -(400 / 3)
-    var barWidth : CGFloat = 400
+    var barWidth : CGFloat = 420
     var pillWidth : CGFloat = 30
+    var blendDuration : CGFloat = 5
+    var dampFraction: CGFloat = 0.55
+    var response : CGFloat = 0.2
     
     var body: some View {
         ZStack(alignment: .top){
@@ -21,33 +24,36 @@ struct BottomNavBar: View {
             HStack(spacing: 0){
                 Button(action: {
                     currentScreen = .STANDINGS
-                    withAnimation{
+                    withAnimation(.spring (response: response, dampingFraction:  dampFraction, blendDuration: blendDuration)){
                         offsetValue = -(barWidth / 3)
                     }
                 }){
                     Text("Standings")
-                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal).background(Color.blue)
+                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal)//.background(Color.blue)
                 Button(action: {
                     currentScreen = .STATS
-                    withAnimation{
+                    withAnimation(.spring (response: response, dampingFraction:  dampFraction, blendDuration: blendDuration)){
                         offsetValue = 0
                     }
                 }){
                     Text("Stats")
-                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal).background(Color.yellow)
+                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal)//.background(Color.yellow)
                 Button(action: {
                     currentScreen = .PLAYERS
-                    withAnimation{
+                    withAnimation(.spring (response: response, dampingFraction:  dampFraction, blendDuration: blendDuration)){
                         offsetValue = (barWidth / 3)
                     }
                 }){
                     Text("Players")
-                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal).background(Color.red)
-            }.background(Color.gray.opacity(0.4)).clipShape(RoundedRectangle(cornerRadius: 30)).foregroundStyle(Color.black)
+                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal)//.background(Color.red)
+            }.background(.ultraThinMaterial).foregroundStyle(Color.label).overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.label.opacity(0.5), lineWidth: 0.2)
+            ).clipShape(RoundedRectangle(cornerRadius: 30)).shadow(color: Color.black.opacity(0.05), radius: 10)
             HStack{
                 
-            }.frame(width: pillWidth, height: 4.5).background(Color.black).clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous)).offset(x: offsetValue)
-        }.padding(.bottom, 10).frame(width: barWidth)
+            }.frame(width: pillWidth, height: 4.7).background(Color.black).clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous)).offset(x: offsetValue)
+        }.padding(.bottom, 10).frame(width: barWidth).font(.custom(FontsManager.Regular, size: 16))
     }
 }
 
