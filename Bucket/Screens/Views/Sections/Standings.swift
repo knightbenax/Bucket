@@ -37,7 +37,12 @@ struct Standings: View {
     }
     
     func startSeeding(){
-        
+        let players = playerViewModel.fetchPlayers()
+        if (players.isEmpty){
+            
+        } else {
+            
+        }
     }
 }
 

@@ -1,0 +1,22 @@
+PODS:
+  - Drops (1.7.0)
+
+DEPENDENCIES:
+  - Drops (from `https://github.com/omaralbeik/Drops.git`, tag `1.7.0`)
+
+EXTERNAL SOURCES:
+  Drops:
+    :git: https://github.com/omaralbeik/Drops.git
+    :tag: 1.7.0
+
+CHECKOUT OPTIONS:
+  Drops:
+    :git: https://github.com/omaralbeik/Drops.git
+    :tag: 1.7.0
+
+SPEC CHECKSUMS:
+  Drops: 5155b9ede54a2666b2129ac33f0734509b9f0784
+
+PODFILE CHECKSUM: 58aebd9cf81f7fc5aecb6b8fa9da30d468bd4575
+
+COCOAPODS: 1.12.1
