@@ -28,15 +28,29 @@ class PlayersViewModel : BaseViewModel {
     }
     
     func addPlayersFromJSON() -> [Player]{
-        let players = loadJson(filename: "players") ?? [Player]()
-        players.forEach{
-            storeHelper.savePlayer(delegate: getDelegate(), player: $0)
+        var players = loadJson(filename: "players") ?? [Player]()
+        
+        
+        for index in players.indices {
+            players[index].id = UUID()
+            storeHelper.savePlayer(delegate: getDelegate(), player: players[index])
         }
+        
+//        players.forEach{
+//            var newPlayer = $0
+//            newPlayer.id = UUID()
+//            //storeHelper.savePlayer(delegate: getDelegate(), player: $0)
+//        }
+        print(players)
         return players
     }
     
     func fetchPlayers() -> [Player] {
         return storeHelper.getPlayers(delegate: getDelegate())
+    }
+    
+    func clearPlayers(){
+        storeHelper.clearPlayers(delegate: getDelegate())
     }
     
 }

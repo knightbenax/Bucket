@@ -24,9 +24,9 @@ class StoreHelper{
         }
     }
     
-    func clearUserCD(delegate : AppDelegate){
+    func clearPlayers(delegate : AppDelegate){
         let context:NSManagedObjectContext = delegate.persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "User")
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "PlayerCD")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
@@ -64,7 +64,7 @@ class StoreHelper{
         
         let managedContext = delegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "PlayerCD")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date_added", ascending: false)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date_added", ascending: true)]
         
         do {
             try temp = managedContext.fetch(fetchRequest)
@@ -76,11 +76,11 @@ class StoreHelper{
             players.append(
                 Player(
                     name: $0.value(forKey: "name") as! String,
-                    dob: $0.value(forKey: "date") as! String,
-                    address: $0.value(forKey: "name") as! String,
-                    phone: $0.value(forKey: "name") as! Double,
-                    email: $0.value(forKey: "name") as! String,
-                    id: $0.value(forKey: "name") as! UUID))
+                    dob: $0.value(forKey: "dob") as! String,
+                    address: $0.value(forKey: "address") as! String,
+                    phone: $0.value(forKey: "phone") as! Double,
+                    email: $0.value(forKey: "email") as! String,
+                    id: $0.value(forKey: "id") as? UUID))
             
         })
         

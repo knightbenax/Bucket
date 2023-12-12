@@ -14,6 +14,9 @@ struct Settings: View {
     @AppStorage("location_data") var locationData : Bool = false
     @AppStorage("grid_setting") var gridSetting : Bool = true
     @State var version : String = ""
+    @State private var showingAlertPlayers = false
+    var playersViewModel = PlayersViewModel()
+    @ObservedObject var viewObserver : ViewObserver
     
     var body: some View {
         VStack{
@@ -68,6 +71,60 @@ struct Settings: View {
                         Spacer()
                     }
                 }
+                Spacer().frame(height: 50)
+                Section{
+                    HStack{
+                        Text("Matches").font(.custom(FontsManager.Regular, size: 16))
+                        Spacer()
+                        Button(action: {
+                            
+                        }){
+                            HStack{
+                                Text("Delete Matches").foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
+                            }.padding(.vertical, 12).padding(.horizontal, 45).contentShape(Rectangle())
+                        }.background(Color.accentColor).cornerRadius(30)
+                    }
+                    HStack{
+                        Text("Players").font(.custom(FontsManager.Regular, size: 16))
+                        Spacer()
+                        Button(action: {
+                            showingAlertPlayers = true
+                        }){
+                            HStack{
+                                Text("Delete Player").foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
+                            }.padding(.vertical, 12).padding(.horizontal, 45).contentShape(Rectangle())
+                        }
+                        .background(Color.accentColor)
+                        .cornerRadius(30)
+                        .alert(isPresented: $showingAlertPlayers) {
+                                    Alert(
+                                        title: Text("Warning"),
+                                        message: Text("Are you sure you want to clear all players?"),
+                                        primaryButton: .default(
+                                                        Text("Cancel"),
+                                                        action: {}
+                                                    ),
+                                                    secondaryButton: .destructive(
+                                                        Text("Clear"),
+                                                        action: {
+                                                            playersViewModel.clearPlayers()
+                                                            viewObserver.clearPlayers = true
+                                                        }
+                                                    )
+                                    )
+                                }
+                    }
+                    SettingsDivider()
+                    HStack{
+                        Text("Delete things here only if you must").font(.custom(FontsManager.Regular, size: 14)).opacity(0.7)
+                        Spacer()
+                    }.padding(.vertical, 5)
+                } header: {
+                    HStack{
+                        Text("Danger Zone").font(.custom(FontsManager.Bold, size: 18)).foregroundStyle(Color.red)
+                        Spacer()
+                    }
+                }
                 Spacer().frame(height: 70)
                 Image(colorScheme == .dark ? "bez_sign" : "bez_sign_black").resizable().scaledToFit().frame(width: 140)
                 Text(version).font(.custom(FontsManager.Regular, size: 14))
@@ -85,7 +142,7 @@ struct Settings: View {
 }
 
 #Preview {
-    Settings()
+    Settings( viewObserver: ViewObserver())
 }
 
 struct SettingsDivider: View{

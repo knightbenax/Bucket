@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct BottomNavBar: View {
-    var verticalPadding : CGFloat = 10
+    var verticalPadding : CGFloat = 12
     var topPadding : CGFloat = 0.5
     @Binding var currentScreen : CURRENT_SCREEN
-    @State var offsetValue : CGFloat = -(400 / 3)
+    @State var offsetValue : CGFloat = -(420 / 3)
     var barWidth : CGFloat = 420
     var pillWidth : CGFloat = 30
     var blendDuration : CGFloat = 5
@@ -28,7 +28,11 @@ struct BottomNavBar: View {
                         offsetValue = -(barWidth / 3)
                     }
                 }){
-                    Text("Standings")
+                    HStack{
+                        Spacer()
+                        Text("Standings")
+                        Spacer()
+                    }.contentShape(Rectangle())
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal)//.background(Color.blue)
                 Button(action: {
                     currentScreen = .STATS
@@ -36,7 +40,11 @@ struct BottomNavBar: View {
                         offsetValue = 0
                     }
                 }){
-                    Text("Stats")
+                    HStack{
+                        Spacer()
+                        Text("Stats")
+                        Spacer()
+                    }.contentShape(Rectangle())
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal)//.background(Color.yellow)
                 Button(action: {
                     currentScreen = .PLAYERS
@@ -44,16 +52,23 @@ struct BottomNavBar: View {
                         offsetValue = (barWidth / 3)
                     }
                 }){
-                    Text("Players")
-                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal)//.background(Color.red)
+                    HStack{
+                        Spacer()
+                        Text("Players")
+                        Spacer()
+                    }.contentShape(Rectangle())
+                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal)
             }.background(.ultraThinMaterial).foregroundStyle(Color.label).overlay(
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: 30)
                     .stroke(Color.label.opacity(0.5), lineWidth: 0.2)
             ).clipShape(RoundedRectangle(cornerRadius: 30)).shadow(color: Color.black.opacity(0.05), radius: 10)
             HStack{
                 
-            }.frame(width: pillWidth, height: 4.7).background(Color.black).clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous)).offset(x: offsetValue)
-        }.padding(.bottom, 10).frame(width: barWidth).font(.custom(FontsManager.Regular, size: 16))
+            }.frame(width: pillWidth, height: 4.7)
+                .background(Color.label)
+                .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+                .offset(x: offsetValue)
+        }.padding(.bottom, 15).frame(width: barWidth).font(.custom(FontsManager.Regular, size: 16))
     }
 }
 

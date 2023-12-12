@@ -11,9 +11,11 @@ struct Match {
     
     var firstPlayer : UUID
     var secondPlayer : UUID
+    var firstPlayerName : String
+    var secondPlayerName : String
     var firstPlayerScore : Int
     var secondPlayerScore : Int
-    var stage : String
-    let id = UUID()
+    var stage : MATCH_TYPE
+    var id = UUID()
     
 }

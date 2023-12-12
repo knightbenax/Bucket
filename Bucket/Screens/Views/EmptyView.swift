@@ -22,8 +22,10 @@ struct EmptyView: View {
                     Button(action: {
                         action()
                     }){
-                        Text(button).foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
-                    }.padding(.vertical, 12).padding(.horizontal, 45).background(Color.accentColor).cornerRadius(30)
+                        HStack{
+                            Text(button).foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
+                        }.padding(.vertical, 12).padding(.horizontal, 45).contentShape(Rectangle())
+                    }.background(Color.accentColor).cornerRadius(30)
                 }
             }
             Spacer()

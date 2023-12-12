@@ -13,15 +13,16 @@ enum CURRENT_SCREEN {
 
 struct Home: View {
     @State var currentScreen : CURRENT_SCREEN = .STANDINGS
+    @StateObject var viewObserver = ViewObserver()
     
     var body: some View {
         ZStack(alignment: .bottom){
             if (currentScreen == .STANDINGS){
-                Standings()
+                Standings(viewObserver: viewObserver)
             } else if (currentScreen == .STATS){
-                Stats()
+                Stats(viewObserver: viewObserver)
             } else {
-                Players()
+                Players(viewObserver: viewObserver)
             }
             BottomNavBar(currentScreen: $currentScreen)
         }.background(Color("HomeBg"))

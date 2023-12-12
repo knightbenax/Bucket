@@ -8,26 +8,27 @@
 import SwiftUI
 
 struct SingleStanding: View {
-    var blockSize : CGFloat = 55
+    var blockSize : CGFloat = 45
+    @Binding var match : Match
 
     var body: some View {
         HStack(spacing: 10){
             VStack(alignment: .leading, spacing: 0){
-                Text("Pauline Lino".replacingOccurrences(of: " ", with: "\n"))
-                Text("9").font(.custom(FontsManager.Black, size: blockSize))
+                Text(match.firstPlayerName.replacingOccurrences(of: " ", with: "\n")).lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/, reservesSpace: true)
+                Text("\(match.firstPlayerScore)").font(.custom(FontsManager.Black, size: blockSize))
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading).padding(.bottom, -10)
             ZStack(alignment: .center){
                 Circle().stroke(lineWidth: 1)
                 Text("VS")
             }.frame(width: 36, height: 36)
             VStack(alignment: .trailing, spacing: 0){
-                Text("Amos Tobi".replacingOccurrences(of: " ", with: "\n")).multilineTextAlignment(.trailing)
-                Text("67").font(.custom(FontsManager.Black, size: blockSize))
+                Text(match.secondPlayerName.replacingOccurrences(of: " ", with: "\n")).multilineTextAlignment(.trailing).lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/, reservesSpace: true)
+                Text("\(match.secondPlayerScore)").font(.custom(FontsManager.Black, size: blockSize))
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing).padding(.bottom, -10)
-        }.padding(15).background(Color.white).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.1), radius: 5).font(.custom(FontsManager.Regular, size: 16))
+        }.padding(13).background(Color("SingleBg")).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.1), radius: 5).font(.custom(FontsManager.Regular, size: 16))
     }
 }
 
 #Preview {
-    SingleStanding().frame(maxWidth: 400)
+    SingleStanding(match: .constant(Match(firstPlayer: UUID(), secondPlayer: UUID(), firstPlayerName: "Pauline Lino", secondPlayerName: "Amos Tobi",  firstPlayerScore: 99,  secondPlayerScore: 67, stage: .FIRSTROUND))).frame(maxWidth: 400)
 }
