@@ -10,6 +10,7 @@ import SwiftUI
 struct SingleStanding: View {
     var blockSize : CGFloat = 45
     @Binding var match : Match
+    @State var showScoreView = false
 
     var body: some View {
         HStack(spacing: 10){
@@ -25,10 +26,14 @@ struct SingleStanding: View {
                 Text(match.secondPlayerName.replacingOccurrences(of: " ", with: "\n")).multilineTextAlignment(.trailing).lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/, reservesSpace: true)
                 Text("\(match.secondPlayerScore)").font(.custom(FontsManager.Black, size: blockSize))
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing).padding(.bottom, -10)
-        }.padding(13).background(Color("SingleBg")).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.1), radius: 5).font(.custom(FontsManager.Regular, size: 16))
+        }.padding(13).background(Color("SingleBg")).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.1), radius: 5).font(.custom(FontsManager.Regular, size: 16)).sheet(isPresented: $showScoreView){
+            ScoreView(match: $match)//.interactiveDismissDisabled()
+        }.onTapGesture {
+            showScoreView.toggle()
+        }
     }
 }
 
 #Preview {
-    SingleStanding(match: .constant(Match(firstPlayer: UUID(), secondPlayer: UUID(), firstPlayerName: "Pauline Lino", secondPlayerName: "Amos Tobi",  firstPlayerScore: 99,  secondPlayerScore: 67, stage: .FIRSTROUND))).frame(maxWidth: 400)
+    SingleStanding(match: .constant(Match(firstPlayer: UUID(), secondPlayer: UUID(), firstPlayerName: "Pauline Lino", secondPlayerName: "Amos Tobi",  firstPlayerScore: 99,  secondPlayerScore: 67, stage: .FIRSTROUND, seeded: true))).frame(maxWidth: 400)
 }

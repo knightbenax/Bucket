@@ -16,6 +16,7 @@ struct Match {
     var firstPlayerScore : Int
     var secondPlayerScore : Int
     var stage : MATCH_TYPE
+    var seeded : Bool
     var id = UUID()
     
 }

@@ -23,7 +23,7 @@ struct Players: View {
                         ForEach($players, id: \.id) { player in
                             SinglePlayer(player: player).frame(maxWidth: maxWidth)
                         }
-                    }.padding(.bottom, 100).padding(.top, 120)
+                    }.padding(.bottom, 120).padding(.top, 120)
                 }.ignoresSafeArea()
             }
             VStack{

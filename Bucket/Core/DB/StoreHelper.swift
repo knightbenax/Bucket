@@ -37,6 +37,19 @@ class StoreHelper{
         }
     }
     
+    func clearMatches(delegate : AppDelegate){
+        let context:NSManagedObjectContext = delegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "MatchCD")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(deleteRequest)
+        } catch let error as NSError {
+            // TODO: handle the error
+            print("Couldn't delete shit \(error), \(error.userInfo)")
+        }
+    }
+    
     
     func savePlayer(delegate : AppDelegate, player : Player){
         let managedContext = delegate.persistentContainer.viewContext

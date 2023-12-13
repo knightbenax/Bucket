@@ -15,7 +15,9 @@ struct Settings: View {
     @AppStorage("grid_setting") var gridSetting : Bool = true
     @State var version : String = ""
     @State private var showingAlertPlayers = false
+    @State private var showingAlertMatches = false
     var playersViewModel = PlayersViewModel()
+    var matchesViewModel = MatchViewModel()
     @ObservedObject var viewObserver : ViewObserver
     
     var body: some View {
@@ -24,7 +26,7 @@ struct Settings: View {
                 Button(action: {presentationMode.wrappedValue.dismiss()}){
                     Image(systemName: "multiply")
                         .font(.system(size: 20, weight: .medium))
-                        .contentShape(Rectangle())
+                        .contentShape(Rectangle()).foregroundStyle(Color.label)
                 }
                 Text("Settings").font(.custom(FontsManager.Bold, size: 18))
                 Spacer()
@@ -82,7 +84,26 @@ struct Settings: View {
                             HStack{
                                 Text("Delete Matches").foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
                             }.padding(.vertical, 12).padding(.horizontal, 45).contentShape(Rectangle())
-                        }.background(Color.accentColor).cornerRadius(30)
+                        }
+                        .background(Color.accentColor)
+                        .cornerRadius(30)
+                        .alert(isPresented: $showingAlertMatches) {
+                                    Alert(
+                                        title: Text("Warning"),
+                                        message: Text("Are you sure you want to clear all matches?"),
+                                        primaryButton: .default(
+                                                        Text("Cancel"),
+                                                        action: {}
+                                                    ),
+                                                    secondaryButton: .destructive(
+                                                        Text("Clear"),
+                                                        action: {
+                                                            matchesViewModel.clearMatches()
+                                                            viewObserver.clearMatches = true
+                                                        }
+                                                    )
+                                    )
+                                }
                     }
                     HStack{
                         Text("Players").font(.custom(FontsManager.Regular, size: 16))
@@ -108,6 +129,8 @@ struct Settings: View {
                                                         Text("Clear"),
                                                         action: {
                                                             playersViewModel.clearPlayers()
+                                                            matchesViewModel.clearMatches()
+                                                            viewObserver.clearMatches = true
                                                             viewObserver.clearPlayers = true
                                                         }
                                                     )
