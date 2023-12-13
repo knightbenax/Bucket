@@ -9,7 +9,6 @@ import Foundation
 
 struct Stat {
     
-    var name : String
     var value : Int
     var type : STAT_TYPE
     var matchID : UUID
