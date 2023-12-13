@@ -64,6 +64,14 @@ struct ScoreView: View {
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing).padding(.bottom, -10)
             }
+            HStack{
+                VStack{
+                    
+                }.frame(minWidth: 0, maxWidth: .infinity)
+                VStack{
+                    
+                }.frame(minWidth: 0, maxWidth: .infinity)
+            }
             Spacer()
         }.padding(.horizontal, 50)
             .padding(.vertical, 30)

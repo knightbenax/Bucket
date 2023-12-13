@@ -29,7 +29,9 @@ struct SingleStanding: View {
         }.padding(13).background(Color("SingleBg")).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.1), radius: 5).font(.custom(FontsManager.Regular, size: 16)).sheet(isPresented: $showScoreView){
             ScoreView(match: $match)//.interactiveDismissDisabled()
         }.onTapGesture {
-            showScoreView.toggle()
+            if (match.seeded){
+                showScoreView.toggle()
+            }
         }
     }
 }
