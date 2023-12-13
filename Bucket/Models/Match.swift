@@ -25,6 +25,9 @@ struct Match {
     var secondBlockPoint : Int
     var stage : MATCH_TYPE
     var seeded : Bool
+    var seedPosition : Int
+    var ended : Bool
     var id = UUID()
+    
     
 }

@@ -17,4 +17,16 @@ class MatchViewModel : BaseViewModel{
         storeHelper.saveMatch(delegate: getDelegate(), match: match)
     }
     
+    func editMatch(match: Match){
+        storeHelper.editMatch(delegate: getDelegate(), match: match)
+    }
+    
+    func getMatches(stage: MATCH_TYPE) -> [Match] {
+        return storeHelper.getMatches(delegate: getDelegate(), stage: stage)
+    }
+    
+    func getUnseededMatches(stage: MATCH_TYPE, seeded: Bool) -> [Match] {
+        return storeHelper.getUnSeededMatches(delegate: getDelegate(), stage: stage, seeded: seeded)
+    }
+    
 }

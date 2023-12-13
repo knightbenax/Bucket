@@ -16,7 +16,7 @@ struct SinglePlayer: View {
         HStack(alignment: .center, spacing: 10){
             VStack(alignment: .leading, spacing: 0){
                 Text(player.name.capitalized).font(.custom(FontsManager.Regular, size: 18)).lineLimit(2, reservesSpace: true)
-            }//.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            }
             VStack(alignment: .trailing, spacing: 0){
                 Text("0").font(.custom(FontsManager.Black, size: blockSize))
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing).padding(.bottom, 5)

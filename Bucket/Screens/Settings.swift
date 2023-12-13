@@ -79,7 +79,7 @@ struct Settings: View {
                         Text("Matches").font(.custom(FontsManager.Regular, size: 16))
                         Spacer()
                         Button(action: {
-                            
+                            showingAlertMatches = true
                         }){
                             HStack{
                                 Text("Delete Matches").foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))

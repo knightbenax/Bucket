@@ -14,7 +14,6 @@ enum CURRENT_SCREEN {
 struct Home: View {
     @State var currentScreen : CURRENT_SCREEN = .STANDINGS
     @StateObject var viewObserver = ViewObserver()
-    @State var singleMatch : Match = Match(firstPlayer: UUID(), secondPlayer: UUID(), firstPlayerName: "Pauline Lino", secondPlayerName: "Amos Tobi", firstPlayerScore: 99,  secondPlayerScore: 67, stage: .FIRSTROUND, seeded: true)
     
     var body: some View {
         ZStack(alignment: .bottom){

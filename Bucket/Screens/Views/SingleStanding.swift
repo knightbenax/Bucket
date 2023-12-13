@@ -10,8 +10,9 @@ import SwiftUI
 struct SingleStanding: View {
     var blockSize : CGFloat = 45
     @Binding var match : Match
+    @Binding var nextRoundMatches : [Match]
     @State var showScoreView = false
-
+    
     var body: some View {
         HStack(spacing: 10){
             VStack(alignment: .leading, spacing: 0){
@@ -26,16 +27,26 @@ struct SingleStanding: View {
                 Text(match.secondPlayerName.replacingOccurrences(of: " ", with: "\n")).multilineTextAlignment(.trailing).lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/, reservesSpace: true)
                 Text(String(format: "%02d", match.secondPlayerScore)).font(.custom(FontsManager.Black, size: blockSize))
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing).padding(.bottom, -10)
-        }.padding(13).background(Color("SingleBg")).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.1), radius: 5).font(.custom(FontsManager.Regular, size: 16)).sheet(isPresented: $showScoreView){
-            ScoreView(match: $match)//.interactiveDismissDisabled()
-        }.onTapGesture {
-            if (match.seeded){
-                showScoreView.toggle()
+        }.padding(13).background(Color("SingleBg")).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.1), radius: 5).font(.custom(FontsManager.Regular, size: 16))
+            .opacity(match.ended ? 0.8 : 1)
+            .sheet(isPresented: $showScoreView){
+                ScoreView(match: $match, nextRoundMatches: $nextRoundMatches)//.interactiveDismissDisabled()
+            }.onTapGesture {
+                if (match.seeded && !match.ended){
+                    showScoreView.toggle()
+                }
             }
-        }
     }
 }
 
 #Preview {
-    SingleStanding(match: .constant(Match(firstPlayer: UUID(), secondPlayer: UUID(), firstPlayerName: "Pauline Lino", secondPlayerName: "Amos Tobi",  firstPlayerScore: 99,  secondPlayerScore: 67, stage: .FIRSTROUND, seeded: true))).frame(maxWidth: 400)
+    SingleStanding(match: .constant(Match(firstPlayer: UUID(), secondPlayer: UUID(), firstPlayerName: "Pauline Lino", secondPlayerName: "Amos Tobi",  firstPlayerScore: 99,  secondPlayerScore: 67,  firstThreePoint: 0,
+                                          secondThreePoint: 0,
+                                          firstTwoPoint: 0,
+                                          secondTwoPoint: 0,
+                                          firstFoulPoint: 0,
+                                          secondFoulPoint: 0,
+                                          firstBlockPoint: 0,
+                                          secondBlockPoint: 0,
+                                          stage: .FIRSTROUND, seeded: true, seedPosition: 1, ended: false)), nextRoundMatches: .constant([])).frame(maxWidth: 400)
 }

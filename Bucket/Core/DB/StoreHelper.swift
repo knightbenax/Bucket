@@ -70,6 +70,40 @@ class StoreHelper{
         }
     }
     
+    func editMatch(delegate : AppDelegate, match : Match){
+        let managedContext = delegate.persistentContainer.viewContext
+        let matchesFetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MatchCD")
+        matchesFetchRequest.predicate = NSPredicate(format: "id == %@", "\(match.id)")
+        var matches : [NSManagedObject] = []
+        
+        do {
+            try matches = managedContext.fetch(matchesFetchRequest)
+            matches.forEach({
+                $0.setValue(match.firstPlayer, forKey: "firstPlayer")
+                $0.setValue(match.secondPlayer, forKey: "secondPlayer")
+                $0.setValue(match.firstPlayerName, forKey: "firstPlayerName")
+                $0.setValue(match.secondPlayerName, forKey: "secondPlayerName")
+                $0.setValue(match.firstPlayerScore, forKey: "firstPlayerScore")
+                $0.setValue(match.secondPlayerScore, forKey: "secondPlayerScore")
+                $0.setValue(match.firstThreePoint, forKey: "firstThreePoint")
+                $0.setValue(match.secondThreePoint, forKey: "secondThreePoint")
+                $0.setValue(match.firstTwoPoint, forKey: "firstTwoPoint")
+                $0.setValue(match.secondTwoPoint, forKey: "secondTwoPoint")
+                $0.setValue(match.firstBlockPoint, forKey: "firstBlock")
+                $0.setValue(match.secondBlockPoint, forKey: "secondBlock")
+                $0.setValue(match.firstFoulPoint, forKey: "firstFoul")
+                $0.setValue(match.secondFoulPoint, forKey: "secondFoul")
+                $0.setValue(match.seeded, forKey: "seeded")
+                $0.setValue(match.ended, forKey: "ended")
+                $0.setValue(match.seedPosition, forKey: "seedPosition")
+                $0.setValue(match.stage.rawValue, forKey: "stage")
+            })
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Couldn't edit shit \(error), \(error.userInfo)")
+        }
+    }
+    
     func saveMatch(delegate : AppDelegate, match : Match){
         let managedContext = delegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "MatchCD", in: managedContext)
@@ -90,7 +124,9 @@ class StoreHelper{
         call.setValue(match.firstFoulPoint, forKey: "firstFoul")
         call.setValue(match.secondFoulPoint, forKey: "secondFoul")
         call.setValue(match.seeded, forKey: "seeded")
-        call.setValue(match.stage, forKey: "stage")
+        call.setValue(match.ended, forKey: "ended")
+        call.setValue(match.seedPosition, forKey: "seedPosition")
+        call.setValue(match.stage.rawValue, forKey: "stage")
         call.setValue(Date(), forKey: "date_added")
         
         do {
@@ -146,6 +182,97 @@ class StoreHelper{
         })
         
         return players
+    }
+    
+    
+    func getMatches(delegate : AppDelegate, stage: MATCH_TYPE) -> [Match] {
+        var temp : [NSManagedObject] = []
+        var matches : [Match] = []
+        
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MatchCD")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date_added", ascending: true)]
+        fetchRequest.predicate = NSPredicate(format: "stage == %i", stage.rawValue)
+        
+        do {
+            try temp = managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Couldn't retrieve shit \(error), \(error.userInfo)")
+        }
+        
+        temp.forEach({
+            matches.append(
+                Match(firstPlayer: $0.value(forKey: "firstPlayer") as! UUID,
+                      secondPlayer: $0.value(forKey: "secondPlayer") as! UUID,
+                      firstPlayerName: $0.value(forKey: "firstPlayerName") as! String,
+                      secondPlayerName: $0.value(forKey: "secondPlayerName") as! String,
+                      firstPlayerScore: $0.value(forKey: "firstPlayerScore") as! Int,
+                      secondPlayerScore: $0.value(forKey: "secondPlayerScore") as! Int,
+                      firstThreePoint: $0.value(forKey: "firstThreePoint") as! Int,
+                      secondThreePoint: $0.value(forKey: "secondThreePoint") as! Int,
+                      firstTwoPoint: $0.value(forKey: "firstTwoPoint") as! Int,
+                      secondTwoPoint: $0.value(forKey: "secondTwoPoint") as! Int,
+                      firstFoulPoint: $0.value(forKey: "firstFoul") as! Int,
+                      secondFoulPoint: $0.value(forKey: "secondFoul") as! Int,
+                      firstBlockPoint: $0.value(forKey: "firstBlock") as! Int,
+                      secondBlockPoint: $0.value(forKey: "secondBlock") as! Int,
+                      stage: MATCH_TYPE(rawValue: $0.value(forKey: "stage") as! Int) ?? .FIRSTROUND,
+                      seeded: $0.value(forKey: "seeded") as! Bool, 
+                      seedPosition: $0.value(forKey: "seedPosition") as! Int,
+                      ended: $0.value(forKey: "ended") as? Bool ?? false,
+                      id: $0.value(forKey: "id") as! UUID)
+            )
+        })
+        
+        return matches
+    }
+    
+    
+    func getUnSeededMatches(delegate : AppDelegate, stage: MATCH_TYPE, seeded : Bool) -> [Match] {
+        var temp : [NSManagedObject] = []
+        var matches : [Match] = []
+        
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MatchCD")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date_added", ascending: true)]
+        //fetchRequest.predicate = NSPredicate(format: "stage == %i", stage.rawValue)
+        
+        let stagePredicate = NSPredicate(format: "stage == %i", stage.rawValue)
+        let seededPredicate = NSPredicate(format: "seeded = %d", seeded)
+        let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [stagePredicate, seededPredicate])
+        fetchRequest.predicate = andPredicate
+        
+        do {
+            try temp = managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Couldn't retrieve shit \(error), \(error.userInfo)")
+        }
+        
+        temp.forEach({
+            matches.append(
+                Match(firstPlayer: $0.value(forKey: "firstPlayer") as! UUID,
+                      secondPlayer: $0.value(forKey: "secondPlayer") as! UUID,
+                      firstPlayerName: $0.value(forKey: "firstPlayerName") as! String,
+                      secondPlayerName: $0.value(forKey: "secondPlayerName") as! String,
+                      firstPlayerScore: $0.value(forKey: "firstPlayerScore") as! Int,
+                      secondPlayerScore: $0.value(forKey: "secondPlayerScore") as! Int,
+                      firstThreePoint: $0.value(forKey: "firstThreePoint") as! Int,
+                      secondThreePoint: $0.value(forKey: "secondThreePoint") as! Int,
+                      firstTwoPoint: $0.value(forKey: "firstTwoPoint") as! Int,
+                      secondTwoPoint: $0.value(forKey: "secondTwoPoint") as! Int,
+                      firstFoulPoint: $0.value(forKey: "firstFoul") as! Int,
+                      secondFoulPoint: $0.value(forKey: "secondFoul") as! Int,
+                      firstBlockPoint: $0.value(forKey: "firstBlock") as! Int,
+                      secondBlockPoint: $0.value(forKey: "secondBlock") as! Int,
+                      stage: MATCH_TYPE(rawValue: $0.value(forKey: "stage") as! Int) ?? .FIRSTROUND,
+                      seeded: $0.value(forKey: "seeded") as! Bool,
+                      seedPosition: $0.value(forKey: "seedPosition") as! Int,
+                      ended: $0.value(forKey: "ended") as? Bool ?? false,
+                      id: $0.value(forKey: "id") as! UUID)
+            )
+        })
+        
+        return matches
     }
     
 }
