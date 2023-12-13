@@ -18,7 +18,7 @@ struct ScoreView: View {
                 VStack(alignment: .leading, spacing: 10){
                     Text(match.firstPlayerName)
                     HStack(alignment: .center, spacing: 20){
-                        Text("\(match.firstPlayerScore)").font(.custom(FontsManager.Black, size: blockSize)).padding(.bottom, 5)
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSize)).padding(.bottom, 5).frame(minWidth: 110)
                         VStack(spacing: 15){
                             Button(action: {
                                 increaseScore(who: "first")
@@ -44,7 +44,7 @@ struct ScoreView: View {
                 VStack(alignment: .trailing, spacing: 10){
                     Text(match.secondPlayerName).multilineTextAlignment(.trailing)
                     HStack(alignment: .center, spacing: 20){
-                        Text("\(match.secondPlayerScore)").font(.custom(FontsManager.Black, size: blockSize)).padding(.bottom, 5)
+                        Text(String(format: "%02d", match.secondPlayerScore)).font(.custom(FontsManager.Black, size: blockSize)).padding(.bottom, 5)
                         VStack(spacing: 15){
                             Button(action: {
                                 increaseScore(who: "second")
