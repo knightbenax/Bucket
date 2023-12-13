@@ -25,6 +25,8 @@ struct Standings: View {
     @State var finalRoundMatches = [Match]()
     
     var playerViewModel = PlayersViewModel()
+    var matchViewModel = MatchViewModel()
+    
     @State var headliner : String = ""
     @State var showLoader : Bool = false
     @ObservedObject var viewObserver : ViewObserver

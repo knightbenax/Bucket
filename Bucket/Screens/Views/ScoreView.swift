@@ -12,7 +12,6 @@ struct ScoreView: View {
     var blockSize : CGFloat = 85
     var blockSizeSmall : CGFloat = 45
     
-    
     var body: some View {
         VStack{
             HStack(spacing: 10){
@@ -232,6 +231,18 @@ struct ScoreView: View {
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
+            Spacer().frame(height: 70)
+            HStack(alignment: .center){
+                Button(action: {
+                    
+                }){
+                    HStack{
+                        Text("Finish Game").foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
+                    }.padding(.vertical, 12).padding(.horizontal, 45).contentShape(Rectangle())
+                }
+                .background(Color.accentColor)
+                .cornerRadius(30)
+            }
             Spacer()
         }.padding(.horizontal, 50)
             .padding(.vertical, 30)
@@ -257,6 +268,15 @@ struct ScoreView: View {
             if (match.secondPlayerScore > 0){
                 match.secondPlayerScore -= 1
             }
+        }
+    }
+    
+    
+    func increaseThree(who: String){
+        if (who == "first"){
+            
+        } else {
+            
         }
     }
 }

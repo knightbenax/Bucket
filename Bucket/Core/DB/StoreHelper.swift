@@ -71,6 +71,25 @@ class StoreHelper{
     }
     
     
+    func saveMatch(delegate : AppDelegate, match : Match){
+        let managedContext = delegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "MatchCD", in: managedContext)
+        let call = NSManagedObject(entity: entity!, insertInto: managedContext)
+        call.setValue(player.name, forKey: "name")
+        call.setValue(player.address, forKey: "address")
+        call.setValue(player.dob, forKey: "dob")
+        call.setValue(player.email, forKey: "email")
+        call.setValue(player.id, forKey: "id")
+        call.setValue(player.phone, forKey: "phone")
+        call.setValue(Date(), forKey: "date_added")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Couldn't save shit \(error), \(error.userInfo)")
+        }
+    }
+    
     func saveStat(delegate : AppDelegate, stat : Stat){
         let managedContext = delegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "StatsCD", in: managedContext)

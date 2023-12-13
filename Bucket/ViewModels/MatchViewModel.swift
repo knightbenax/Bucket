@@ -13,4 +13,8 @@ class MatchViewModel : BaseViewModel{
         storeHelper.clearMatches(delegate: getDelegate())
     }
     
+    func addMatch(){
+        //storeHelper
+    }
+    
 }
