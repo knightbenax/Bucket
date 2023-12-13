@@ -19,6 +19,10 @@ struct Match {
     var secondThreePoint : Int
     var firstTwoPoint : Int
     var secondTwoPoint : Int
+    var firstFoulPoint : Int
+    var secondFoulPoint : Int
+    var firstBlockPoint : Int
+    var secondBlockPoint : Int
     var stage : MATCH_TYPE
     var seeded : Bool
     var id = UUID()

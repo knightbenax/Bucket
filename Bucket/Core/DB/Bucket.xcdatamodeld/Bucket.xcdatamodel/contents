@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23B92" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="MatchCD" representedClassName="MatchCD" syncable="YES" codeGenerationType="class">
+        <attribute name="date_added" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="firstBlock" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="firstFoul" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="firstPlayer" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -15,7 +16,7 @@
         <attribute name="secondPlayerName" optional="YES" attributeType="String"/>
         <attribute name="secondPlayerScore" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="secondThreePoint" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="secondTwoPoint" optional="YES"/>
+        <attribute name="secondTwoPoint" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="seeded" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="stage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
