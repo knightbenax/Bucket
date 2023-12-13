@@ -70,25 +70,6 @@ class StoreHelper{
         }
     }
     
-    
-//    var firstPlayer : UUID
-//    var secondPlayer : UUID
-//    var firstPlayerName : String
-//    var secondPlayerName : String
-//    var firstPlayerScore : Int
-//    var secondPlayerScore : Int
-//    var firstThreePoint : Int
-//    var secondThreePoint : Int
-//    var firstTwoPoint : Int
-//    var secondTwoPoint : Int
-//    var firstFoulPoint : Int
-//    var secondFoulPoint : Int
-//    var firstBlockPoint : Int
-//    var secondBlockPoint : Int
-//    var stage : MATCH_TYPE
-//    var seeded : Bool
-//    var id = UUID()
-    
     func saveMatch(delegate : AppDelegate, match : Match){
         let managedContext = delegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "MatchCD", in: managedContext)
@@ -102,6 +83,14 @@ class StoreHelper{
         call.setValue(match.secondPlayerScore, forKey: "secondPlayerScore")
         call.setValue(match.firstThreePoint, forKey: "firstThreePoint")
         call.setValue(match.secondThreePoint, forKey: "secondThreePoint")
+        call.setValue(match.firstTwoPoint, forKey: "firstTwoPoint")
+        call.setValue(match.secondTwoPoint, forKey: "secondTwoPoint")
+        call.setValue(match.firstBlockPoint, forKey: "firstBlock")
+        call.setValue(match.secondBlockPoint, forKey: "secondBlock")
+        call.setValue(match.firstFoulPoint, forKey: "firstFoul")
+        call.setValue(match.secondFoulPoint, forKey: "secondFoul")
+        call.setValue(match.seeded, forKey: "seeded")
+        call.setValue(match.stage, forKey: "stage")
         call.setValue(Date(), forKey: "date_added")
         
         do {
