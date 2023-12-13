@@ -281,8 +281,6 @@ struct ScoreView: View {
             match.ended = true
             matchesViewModel.editMatch(match: match)
             let nextStageMatch = nextRoundMatches.firstIndex(where: {$0.seeded == false})
-            //(nextRoundMatches.first{ $0.seeded == false })?.firstPlayerScore = 76
-            //print(nextStageMatch)//matchesViewModel.getUnseededMatches(stage: MATCH_TYPE(rawValue: nextStage)!, seeded: false)
             if (nextStageMatch != nil) {
                 if (match.seedPosition == 2){
                     //var nextMatch = nextStageMatches.first!
@@ -305,12 +303,10 @@ struct ScoreView: View {
         } else if (match.secondPlayerScore > match.firstPlayerScore){
             //secondPlayer is the winner
             match.ended = true
-            ////let nextStage = match.stage.rawValue + 1
+            matchesViewModel.editMatch(match: match)
             let nextStageMatch = nextRoundMatches.firstIndex(where: {$0.seeded == false}) //matchesViewModel.getUnseededMatches(stage: MATCH_TYPE(rawValue: nextStage)!, seeded: false)
-            //print(nextStageMatch)
             if (nextStageMatch != nil) {
                 if (match.seedPosition == 2){
-                    //var nextMatch = nextStageMatches.first!
                     nextRoundMatches[nextStageMatch!].firstPlayerName = match.secondPlayerName
                     nextRoundMatches[nextStageMatch!].firstPlayer = match.secondPlayer
                     if (nextRoundMatches[nextStageMatch!].firstPlayerName != "-" && nextRoundMatches[nextStageMatch!].secondPlayerName != "-"){
@@ -318,7 +314,6 @@ struct ScoreView: View {
                         matchesViewModel.editMatch(match: nextRoundMatches[nextStageMatch!])
                     }
                 } else if (match.seedPosition == 1){
-                    //var nextMatch = nextStageMatches.first!
                     nextRoundMatches[nextStageMatch!].secondPlayerName = match.secondPlayerName
                     nextRoundMatches[nextStageMatch!].secondPlayer = match.secondPlayer
                     if (nextRoundMatches[nextStageMatch!].firstPlayerName != "-" && nextRoundMatches[nextStageMatch!].secondPlayerName != "-"){
