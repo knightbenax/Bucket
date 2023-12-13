@@ -42,7 +42,7 @@ struct Standings: View {
                             ForEach($matches, id: \.id) { match in
                                            SingleStanding(match: match)
                                        }
-                        }.padding(.bottom, 15).padding(.top, 100).padding(.horizontal, 15)
+                        }.padding(.bottom, 15).padding(.top, 120).padding(.horizontal, 15)
                         SettingsDivider().frame(maxWidth: 400)
                         LazyVGrid(columns: columns, spacing: 12) {
                             ForEach($matches, id: \.id) { match in
