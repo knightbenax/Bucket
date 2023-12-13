@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+enum STAT_TYPE : Int, Equatable{
+    case THREEPOINT = 0
+    case TWOPOINT = 1
+    case BLOCKS = 2
+    case FOUL = 3
+}
+
 struct Stats: View {
     @State var showSettings = false
     @State var stats = [Stat]()

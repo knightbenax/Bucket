@@ -20,4 +20,5 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="phone" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="StatsCD" representedClassName="StatsCD" syncable="YES" codeGenerationType="class"/>
 </model>

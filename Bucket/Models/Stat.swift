@@ -10,8 +10,10 @@ import Foundation
 struct Stat {
     
     var name : String
-    var value : String
-    var type : String
+    var value : Int
+    var type : STAT_TYPE
+    var matchID : UUID
+    var owner : UUID
     let id = UUID()
     
 }

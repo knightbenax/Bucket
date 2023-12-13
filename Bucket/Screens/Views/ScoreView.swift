@@ -10,6 +10,7 @@ import SwiftUI
 struct ScoreView: View {
     @Binding var match : Match
     var blockSize : CGFloat = 85
+    var blockSizeSmall : CGFloat = 45
     
     
     var body: some View {
@@ -64,13 +65,172 @@ struct ScoreView: View {
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing).padding(.bottom, -10)
             }
+            Spacer().frame(height: 70)
             HStack{
                 VStack{
-                    
-                }.frame(minWidth: 0, maxWidth: .infinity)
+                    HStack(spacing: 25){
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                        Text("3-points").frame(minWidth: 80)
+                        HStack(spacing: 15){
+                            Button(action: {
+                                increaseScore(who: "second")
+                            }){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                            Button(action: {
+                                reduceScore(who: "second")
+                            }){
+                                Image(systemName: "minus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                        }
+                    }
+                    HStack(spacing: 25){
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                        Text("2-points").frame(minWidth: 80)
+                        HStack(spacing: 15){
+                            Button(action: {
+                                increaseScore(who: "second")
+                            }){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                            Button(action: {
+                                reduceScore(who: "second")
+                            }){
+                                Image(systemName: "minus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                        }
+                    }
+                    HStack(spacing: 25){
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                        Text("Blocks").frame(minWidth: 80)
+                        HStack(spacing: 15){
+                            Button(action: {
+                                increaseScore(who: "second")
+                            }){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                            Button(action: {
+                                reduceScore(who: "second")
+                            }){
+                                Image(systemName: "minus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                        }
+                    }
+                    HStack(spacing: 25){
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                        Text("Fouls").frame(minWidth: 80).multilineTextAlignment(.leading)
+                        HStack(spacing: 15){
+                            Button(action: {
+                                increaseScore(who: "second")
+                            }){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                            Button(action: {
+                                reduceScore(who: "second")
+                            }){
+                                Image(systemName: "minus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                        }
+                    }
+                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 VStack{
-                    
-                }.frame(minWidth: 0, maxWidth: .infinity)
+                    HStack(spacing: 25){
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                        Text("3-points").frame(minWidth: 80)
+                        HStack(spacing: 15){
+                            Button(action: {
+                                increaseScore(who: "second")
+                            }){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                            Button(action: {
+                                reduceScore(who: "second")
+                            }){
+                                Image(systemName: "minus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                        }
+                    }
+                    HStack(spacing: 25){
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                        Text("2-points").frame(minWidth: 80)
+                        HStack(spacing: 15){
+                            Button(action: {
+                                increaseScore(who: "second")
+                            }){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                            Button(action: {
+                                reduceScore(who: "second")
+                            }){
+                                Image(systemName: "minus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                        }
+                    }
+                    HStack(spacing: 25){
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                        Text("Blocks").frame(minWidth: 80)
+                        HStack(spacing: 15){
+                            Button(action: {
+                                increaseScore(who: "second")
+                            }){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                            Button(action: {
+                                reduceScore(who: "second")
+                            }){
+                                Image(systemName: "minus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                        }
+                    }
+                    HStack(spacing: 25){
+                        Text(String(format: "%02d", match.firstPlayerScore)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                        Text("Fouls").frame(minWidth: 80).multilineTextAlignment(.leading)
+                        HStack(spacing: 15){
+                            Button(action: {
+                                increaseScore(who: "second")
+                            }){
+                                Image(systemName: "plus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                            Button(action: {
+                                reduceScore(who: "second")
+                            }){
+                                Image(systemName: "minus")
+                                    .font(.system(size: 20, weight: .medium))
+                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                            }
+                        }
+                    }
+                }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
             Spacer()
         }.padding(.horizontal, 50)
