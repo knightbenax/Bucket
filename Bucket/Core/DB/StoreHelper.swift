@@ -143,7 +143,7 @@ class StoreHelper{
         call.setValue(stat.value, forKey: "value")
         call.setValue(stat.id, forKey: "id")
         call.setValue(stat.owner, forKey: "owner")
-        call.setValue(stat.matchID, forKey: "matchID")
+        //call.setValue(stat.matchID, forKey: "matchID")
         call.setValue(stat.type.rawValue, forKey: "type")
         call.setValue(Date(), forKey: "date_added")
         

@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct Stat {
+struct Stat : Identifiable {
     
+    var ownerName : String
     var value : Int
     var type : STAT_TYPE
-    var matchID : UUID
+    //var matchID : UUID
     var owner : UUID
     let id = UUID()
     
