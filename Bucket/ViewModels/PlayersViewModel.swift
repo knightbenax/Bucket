@@ -35,18 +35,12 @@ class PlayersViewModel : BaseViewModel {
             players[index].id = UUID()
             storeHelper.savePlayer(delegate: getDelegate(), player: players[index])
         }
-        
-//        players.forEach{
-//            var newPlayer = $0
-//            newPlayer.id = UUID()
-//            //storeHelper.savePlayer(delegate: getDelegate(), player: $0)
-//        }
-        print(players)
-        return players
+
+        return players.sorted { $0.name < $1.name }
     }
     
     func fetchPlayers() -> [Player] {
-        return storeHelper.getPlayers(delegate: getDelegate())
+        return storeHelper.getPlayers(delegate: getDelegate()).sorted { $0.name < $1.name }
     }
     
     func clearPlayers(){

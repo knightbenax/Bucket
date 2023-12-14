@@ -33,30 +33,6 @@ struct Settings: View {
             }.padding([.horizontal], 20).padding([.vertical], 24)
             VStack(){
                 Section{
-                    Toggle(isOn: $gridSetting, label: {
-                        Text("Show Grid"
-                        ).font(.custom(FontsManager.Regular, size: 16))
-                        
-                    })
-                    SettingsDivider()
-                    Toggle(isOn: $preserveCaptureSettings, label: {
-                        Text("Reset camera settings on each start").font(.custom(FontsManager.Regular, size: 16))
-                    }).onChange(of: preserveCaptureSettings) { value in
-                       
-                    }
-                    SettingsDivider()
-                    HStack{
-                        Text("Save location data to images you take").font(.custom(FontsManager.Regular, size: 14)).opacity(0.7)
-                        Spacer()
-                    }.padding(.vertical, 5)
-                                    } header: {
-                    HStack{
-                        Text("Camera").font(.custom(FontsManager.Bold, size: 18))
-                        Spacer()
-                    }
-                }
-                Spacer().frame(height: 50)
-                Section{
                     Toggle(isOn: $preserveCaptureSettings, label: {
                         Text("Daily sales notification").font(.custom(FontsManager.Regular, size: 16))
                     }).onChange(of: preserveCaptureSettings) { value in
@@ -150,6 +126,7 @@ struct Settings: View {
                 }
                 Spacer().frame(height: 70)
                 Image(colorScheme == .dark ? "bez_sign" : "bez_sign_black").resizable().scaledToFit().frame(width: 140)
+                Text("Bucket was made for the maiden 1v1 basketball tournament at GOA Abesan, Lagos, Nigeria").font(.custom(FontsManager.Regular, size: 14))
                 Text(version).font(.custom(FontsManager.Regular, size: 14))
             }.padding([.horizontal], 20).padding([.vertical], 10).opacity(0.7)
             Spacer()
