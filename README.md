@@ -1,6 +1,6 @@
 # 🏀 Bucket - 1v1 Basketball Tourney App. 
 
-[![Knightbenax Approved](/knightbenax-approved-blue.svg)](https://twitter.com/knightbenax) [![Platform](/platform.svg)]()
+[![Knightbenax Approved](/knightbenax-approved-blue.svg)](https://twitter.com/knightbenax) [![Platform](https://badgen.net/badge/platform/iPadOS/blue?icon=apple)]()
 
 Handles seeding of matches by randomizing pairs of players into the first 16 matches (Bucket handles only tourneys for 32 players for now), 
 creating the remaining matches but leaving them empty and later seeding them from winners from each previous match stage. 
