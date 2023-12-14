@@ -75,166 +75,183 @@ struct ScoreView: View {
             Spacer().frame(height: 70)
             HStack{
                 VStack{
-                    HStack(spacing: 20){
-                        Text(String(format: "%02d", match.firstThreePoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
-                        Text("3-points").frame(minWidth: statTextSize)
-                        HStack(spacing: 15){
-                            Button(action: {
-                                increaseThree(who: "first")
-                            }){
-                                Image(systemName: "plus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
-                            Button(action: {
-                                reduceThree(who: "first")
-                            }){
-                                Image(systemName: "minus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
+                    HStack(alignment: .center, spacing: 15){
+                        Button(action: {
+                            increaseThree(who: "first")
+                        }){
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                        }
+                        Spacer()
+                        VStack(spacing: 0){
+                            Text(String(format: "%02d", match.firstThreePoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                            Text("3-points").frame(minWidth: statTextSize)
+                        }
+                        Spacer()
+                        Button(action: {
+                            reduceThree(who: "first")
+                        }){
+                            Image(systemName: "minus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
                         }
                     }
-                    HStack(spacing: 20){
-                        Text(String(format: "%02d", match.firstTwoPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
-                        Text("2-points").frame(minWidth: statTextSize)
-                        HStack(spacing: 15){
-                            Button(action: {
-                                increaseTwo(who: "first")
-                            }){
-                                Image(systemName: "plus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
-                            Button(action: {
-                                reduceTwo(who: "first")
-                            }){
-                                Image(systemName: "minus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
+                    HStack(alignment: .center, spacing: 15){
+                        Button(action: {
+                            increaseTwo(who: "first")
+                        }){
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                        }
+                        Spacer()
+                        VStack(spacing: 0){
+                            Text(String(format: "%02d", match.firstTwoPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                            Text("2-points").frame(minWidth: statTextSize)
+                        }
+                        Spacer()
+                        Button(action: {
+                            reduceTwo(who: "first")
+                        }){
+                            Image(systemName: "minus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
                         }
                     }
-                    HStack(spacing: 20){
-                        Text(String(format: "%02d", match.firstBlockPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
-                        Text("Blocks").frame(minWidth: statTextSize)
-                        HStack(spacing: 15){
-                            Button(action: {
-                                increaseBlock(who: "first")
-                            }){
-                                Image(systemName: "plus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
-                            Button(action: {
-                                reduceBlock(who: "first")
-                            }){
-                                Image(systemName: "minus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
+                    HStack(spacing: 15){
+                        Button(action: {
+                            increaseBlock(who: "first")
+                        }){
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                        }
+                        Spacer()
+                        VStack(spacing: 0){
+                            Text(String(format: "%02d", match.firstBlockPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                            Text("Blocks").frame(minWidth: statTextSize)
+                        }
+                        Spacer()
+                        Button(action: {
+                            reduceBlock(who: "first")
+                        }){
+                            Image(systemName: "minus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
                         }
                     }
-                    HStack(spacing: 20){
-                        Text(String(format: "%02d", match.firstFoulPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
-                        Text("Fouls").frame(minWidth: statTextSize).multilineTextAlignment(.leading)
-                        HStack(spacing: 15){
-                            Button(action: {
-                                increaseFoul(who: "first")
-                            }){
-                                Image(systemName: "plus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
-                            Button(action: {
-                                reduceFoul(who: "first")
-                            }){
-                                Image(systemName: "minus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
+                    HStack(spacing: 15){
+                        Button(action: {
+                            increaseFoul(who: "first")
+                        }){
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                        }
+                        Spacer()
+                        VStack(spacing: 0){
+                            Text(String(format: "%02d", match.firstFoulPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                            Text("Fouls").frame(minWidth: statTextSize).multilineTextAlignment(.leading)
+                        }
+                        Spacer()
+                        Button(action: {
+                            reduceFoul(who: "first")
+                        }){
+                            Image(systemName: "minus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
                         }
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                Spacer().frame(minWidth: 20)
                 VStack{
-                    HStack(spacing: 20){
-                        Text(String(format: "%02d", match.secondThreePoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
-                        Text("3-points").frame(minWidth: statTextSize)
-                        HStack(spacing: 15){
-                            Button(action: {
-                                increaseThree(who: "second")
-                            }){
-                                Image(systemName: "plus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
-                            Button(action: {
-                                reduceThree(who: "second")
-                            }){
-                                Image(systemName: "minus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
+                    HStack(spacing: 15){
+                        Button(action: {
+                            increaseThree(who: "second")
+                        }){
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                        }
+                        Spacer()
+                        VStack(spacing: 0){
+                            Text(String(format: "%02d", match.secondThreePoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                            Text("3-points").frame(minWidth: statTextSize)
+                        }
+                        Spacer()
+                        Button(action: {
+                            reduceThree(who: "second")
+                        }){
+                            Image(systemName: "minus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
                         }
                     }
-                    HStack(spacing: 20){
-                        Text(String(format: "%02d", match.secondTwoPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
-                        Text("2-points").frame(minWidth: statTextSize)
-                        HStack(spacing: 15){
-                            Button(action: {
-                                increaseTwo(who: "second")
-                            }){
-                                Image(systemName: "plus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
-                            Button(action: {
-                                reduceTwo(who: "second")
-                            }){
-                                Image(systemName: "minus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
+                    HStack(spacing: 15){
+                        Button(action: {
+                            increaseTwo(who: "second")
+                        }){
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                        }
+                        Spacer()
+                        VStack(spacing: 0){
+                            Text(String(format: "%02d", match.secondTwoPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                            Text("2-points").frame(minWidth: statTextSize)
+                        }
+                        Spacer()
+                        Button(action: {
+                            reduceTwo(who: "second")
+                        }){
+                            Image(systemName: "minus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
                         }
                     }
-                    HStack(spacing: 20){
-                        Text(String(format: "%02d", match.secondBlockPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
-                        Text("Blocks").frame(minWidth: statTextSize)
-                        HStack(spacing: 15){
-                            Button(action: {
-                                increaseBlock(who: "second")
-                            }){
-                                Image(systemName: "plus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
-                            Button(action: {
-                                reduceBlock(who: "second")
-                            }){
-                                Image(systemName: "minus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
+                    HStack(spacing: 15){
+                        Button(action: {
+                            increaseBlock(who: "second")
+                        }){
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                        }
+                        Spacer()
+                        VStack(spacing: 0){
+                            Text(String(format: "%02d", match.secondBlockPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                            Text("Blocks").frame(minWidth: statTextSize)
+                        }
+                        Spacer()
+                        Button(action: {
+                            reduceBlock(who: "second")
+                        }){
+                            Image(systemName: "minus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
                         }
                     }
-                    HStack(spacing: 20){
-                        Text(String(format: "%02d", match.secondFoulPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
-                        Text("Fouls").frame(minWidth: statTextSize).multilineTextAlignment(.leading)
-                        HStack(spacing: 15){
-                            Button(action: {
-                                increaseFoul(who: "second")
-                            }){
-                                Image(systemName: "plus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
-                            Button(action: {
-                                reduceFoul(who: "second")
-                            }){
-                                Image(systemName: "minus")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
-                            }
+                    HStack(spacing: 15){
+                        Button(action: {
+                            increaseFoul(who: "second")
+                        }){
+                            Image(systemName: "plus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
+                        }
+                        Spacer()
+                        VStack(spacing: 0){
+                            Text(String(format: "%02d", match.secondFoulPoint)).font(.custom(FontsManager.Black, size: blockSizeSmall))
+                            Text("Fouls").frame(minWidth: statTextSize).multilineTextAlignment(.leading)
+                        }
+                        Spacer()
+                        Button(action: {
+                            reduceFoul(who: "second")
+                        }){
+                            Image(systemName: "minus")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundStyle(Color("ScoreBtnBg")).padding(10).padding(.vertical, 7).background(Color.label).clipShape(RoundedRectangle(cornerRadius: 5)).contentShape(Rectangle())
                         }
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
