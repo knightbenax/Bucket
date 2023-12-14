@@ -124,8 +124,8 @@ struct Settings: View {
                         Spacer()
                     }
                 }
-                Spacer().frame(height: 70)
-                Image(colorScheme == .dark ? "bez_sign" : "bez_sign_black").resizable().scaledToFit().frame(width: 140)
+                Spacer().frame(height: 40)
+                Image(colorScheme == .dark ? "bez_sign" : "bez_sign_black").resizable().scaledToFit().frame(width: 120)
                 Text("Bucket was made for the maiden 1v1 basketball tournament at GOA Abesan, Lagos, Nigeria").font(.custom(FontsManager.Regular, size: 14))
                 Text(version).font(.custom(FontsManager.Regular, size: 14))
             }.padding([.horizontal], 20).padding([.vertical], 10).opacity(0.7)
