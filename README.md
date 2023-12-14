@@ -1,15 +1,16 @@
 # 🏀 Bucket - 1v1 Basketball Tourney App. 
 
-[![Knightbenax Approved](/knightbenax-approved-blue.svg)](https://twitter.com/knightbenax) [![Platform](/platform.svg)]()
+[![Knightbenax Approved](/knightbenax-approved-blue.svg)](https://twitter.com/knightbenax) [![Platform](https://badgen.net/badge/platform/iPadOS/blue?icon=apple)]()
 
 Handles seeding of matches by randomizing pairs of players into the first 16 matches (Bucket handles only tourneys for 32 players for now), 
 creating the remaining matches but leaving them empty and later seeding them from winners from each previous match stage. 
 
 Handles stats so you can see players with the highest points, 3 points, 2 points, fouls, and blocks
 
-![Screenshot](/screenshots/standings.png?raw=true)
-![Screenshot](/screenshots/stats.png?raw=true)
-![Screenshot](/screenshots/players.png?raw=true)
+![Screenshot](/Screenshots/icon.png?raw=true "")
+![Screenshot](/Screenshots/standings.png?raw=true "")
+![Screenshot](/Screenshots/stats.png?raw=true "")
+![Screenshot](/Screenshots/players.png?raw=true "")
 
 ## Setup & Installation
 
