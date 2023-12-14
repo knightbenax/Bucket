@@ -7,9 +7,9 @@ creating the remaining matches but leaving them empty and later seeding them fro
 
 Handles stats so you can see players with the highest points, 3 points, 2 points, fouls, and blocks
 
-![Screenshot](/screenshots/standings.png?raw=true)
-![Screenshot](/screenshots/stats.png?raw=true)
-![Screenshot](/screenshots/players.png?raw=true)
+![Screenshot](/Screenshots/standings.png?raw=true "")
+![Screenshot](/Screenshots/stats.png?raw=true "")
+![Screenshot](/Screenshots/players.png?raw=true "")
 
 ## Setup & Installation
 
