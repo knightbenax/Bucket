@@ -171,7 +171,7 @@ struct Settings: View {
 struct SettingsDivider: View{
     
     var body: some View {
-        Divider().overlay(Color.white.opacity(0.6))
+        Divider().overlay(Color.label.opacity(0.6))
     }
     
 }

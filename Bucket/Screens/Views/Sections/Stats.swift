@@ -38,6 +38,8 @@ struct Stats: View {
             }
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading).sheet(isPresented: $showSettings){
             Settings(viewObserver: viewObserver)
+        }.onAppear{
+            
         }
     }
 }

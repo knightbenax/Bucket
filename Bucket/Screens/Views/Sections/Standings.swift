@@ -23,6 +23,7 @@ struct Standings: View {
     @State var thirdRoundMatches = [Match]()
     @State var fourthRoundMatches = [Match]()
     @State var finalRoundMatches = [Match]()
+    @State var dudRoundMatches = [Match]()
     
     var playerViewModel = PlayersViewModel()
     var matchViewModel = MatchViewModel()
@@ -60,7 +61,7 @@ struct Standings: View {
                             ForEach($matches, id: \.id) { $match in
                                 SingleStanding(match: $match, nextRoundMatches: $secondRoundMatches)
                             }
-                        }.padding(.bottom, 20).padding(.top, 120).padding(.horizontal, 15)
+                        }.padding(.bottom, 20).padding(.top, 115).padding(.horizontal, 15)
                         SettingsDivider().frame(maxWidth: 400)
                         LazyVGrid(columns: columns, spacing: 12) {
                             ForEach($secondRoundMatches, id: \.id) { match in
@@ -82,7 +83,7 @@ struct Standings: View {
                         SettingsDivider().frame(maxWidth: 400)
                         LazyVGrid(columns: finalColumns, spacing: 12) {
                             ForEach($finalRoundMatches, id: \.id) { match in
-                                SingleStanding(match: match, nextRoundMatches: $finalRoundMatches)
+                                SingleStanding(match: match, nextRoundMatches: $dudRoundMatches)
                             }
                         }.padding(.bottom, 120).padding(.top, 20).padding(.horizontal, 15).frame(maxWidth: 500)
                     }.ignoresSafeArea()

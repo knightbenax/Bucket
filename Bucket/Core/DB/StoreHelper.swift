@@ -227,6 +227,51 @@ class StoreHelper{
         return matches
     }
     
+    func getMatchesToPlayer(delegate : AppDelegate, player: UUID) -> [Match] {
+        var temp : [NSManagedObject] = []
+        var matches : [Match] = []
+        
+        let managedContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MatchCD")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date_added", ascending: true)]
+        let firstPredicate = NSPredicate(format: "firstPlayer == %@", player as CVarArg)
+        let secondPredicate = NSPredicate(format: "secondPlayer == %@", player as CVarArg)
+        let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.or, subpredicates: [firstPredicate, secondPredicate])
+        fetchRequest.predicate = andPredicate
+        
+        do {
+            try temp = managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Couldn't retrieve shit \(error), \(error.userInfo)")
+        }
+        
+        temp.forEach({
+            matches.append(
+                Match(firstPlayer: $0.value(forKey: "firstPlayer") as! UUID,
+                      secondPlayer: $0.value(forKey: "secondPlayer") as! UUID,
+                      firstPlayerName: $0.value(forKey: "firstPlayerName") as! String,
+                      secondPlayerName: $0.value(forKey: "secondPlayerName") as! String,
+                      firstPlayerScore: $0.value(forKey: "firstPlayerScore") as! Int,
+                      secondPlayerScore: $0.value(forKey: "secondPlayerScore") as! Int,
+                      firstThreePoint: $0.value(forKey: "firstThreePoint") as! Int,
+                      secondThreePoint: $0.value(forKey: "secondThreePoint") as! Int,
+                      firstTwoPoint: $0.value(forKey: "firstTwoPoint") as! Int,
+                      secondTwoPoint: $0.value(forKey: "secondTwoPoint") as! Int,
+                      firstFoulPoint: $0.value(forKey: "firstFoul") as! Int,
+                      secondFoulPoint: $0.value(forKey: "secondFoul") as! Int,
+                      firstBlockPoint: $0.value(forKey: "firstBlock") as! Int,
+                      secondBlockPoint: $0.value(forKey: "secondBlock") as! Int,
+                      stage: MATCH_TYPE(rawValue: $0.value(forKey: "stage") as! Int) ?? .FIRSTROUND,
+                      seeded: $0.value(forKey: "seeded") as! Bool,
+                      seedPosition: $0.value(forKey: "seedPosition") as! Int,
+                      ended: $0.value(forKey: "ended") as? Bool ?? false,
+                      id: $0.value(forKey: "id") as! UUID)
+            )
+        })
+        
+        return matches
+    }
+    
     
     func getUnSeededMatches(delegate : AppDelegate, stage: MATCH_TYPE, seeded : Bool) -> [Match] {
         var temp : [NSManagedObject] = []

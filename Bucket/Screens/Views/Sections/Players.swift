@@ -12,6 +12,7 @@ struct Players: View {
     @State var players = [Player]()
     @State var headliner : String = ""
     var playersViewModel = PlayersViewModel()
+    var matchesViewModel = MatchViewModel()
     @ObservedObject var viewObserver : ViewObserver
     var maxWidth: CGFloat = 620
     
@@ -21,9 +22,10 @@ struct Players: View {
                 ScrollView(showsIndicators: false){
                     LazyVStack(spacing: 15){
                         ForEach($players, id: \.id) { player in
-                            SinglePlayer(player: player).frame(maxWidth: maxWidth)
+                            let matches = matchesViewModel.getMatchesToPlayer(player: player.wrappedValue.id ?? UUID())
+                            SinglePlayer(player: player, matches: matches).frame(maxWidth: maxWidth)
                         }
-                    }.padding(.bottom, 120).padding(.top, 120)
+                    }.padding(.bottom, 120).padding(.top, 115)
                 }.ignoresSafeArea()
             }
             VStack{

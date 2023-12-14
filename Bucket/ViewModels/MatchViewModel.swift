@@ -25,6 +25,10 @@ class MatchViewModel : BaseViewModel{
         return storeHelper.getMatches(delegate: getDelegate(), stage: stage)
     }
     
+    func getMatchesToPlayer(player : UUID) -> [Match] {
+        return storeHelper.getMatchesToPlayer(delegate: getDelegate(), player: player)
+    }
+    
     func getUnseededMatches(stage: MATCH_TYPE, seeded: Bool) -> [Match] {
         return storeHelper.getUnSeededMatches(delegate: getDelegate(), stage: stage, seeded: seeded)
     }

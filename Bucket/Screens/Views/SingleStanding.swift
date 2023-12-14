@@ -27,8 +27,15 @@ struct SingleStanding: View {
                 Text(match.secondPlayerName.replacingOccurrences(of: " ", with: "\n")).multilineTextAlignment(.trailing).lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/, reservesSpace: true)
                 Text(String(format: "%02d", match.secondPlayerScore)).font(.custom(FontsManager.Black, size: blockSize))
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing).padding(.bottom, -10)
-        }.padding(13).background(Color("SingleBg")).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(0.1), radius: 5).font(.custom(FontsManager.Regular, size: 16))
-            .opacity(match.ended ? 0.8 : 1)
+        }.padding(13).background(Color("SingleBg"))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .shadow(color: Color.black.opacity(0.1), radius: 5)
+            .font(.custom(FontsManager.Regular, size: 16))
+            .opacity(match.ended ? 0.68 : 1)
+            .overlay(
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(match.ended ? Color.accentColor.opacity(0.5) : Color.clear, lineWidth: 1)
+            )
             .sheet(isPresented: $showScoreView){
                 ScoreView(match: $match, nextRoundMatches: $nextRoundMatches)//.interactiveDismissDisabled()
             }.onTapGesture {

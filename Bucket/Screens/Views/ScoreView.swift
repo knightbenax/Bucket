@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Drops
 
 struct ScoreView: View {
     @Binding var match : Match
@@ -240,15 +241,19 @@ struct ScoreView: View {
             }
             Spacer().frame(height: 70)
             HStack(alignment: .center){
-                Button(action: {
-                    showingAlertFinish = true
-                }){
-                    HStack{
-                        Text("Finish Game").foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
-                    }.padding(.vertical, 12).padding(.horizontal, 45).contentShape(Rectangle())
+                if (match.ended){
+                    Text("Game Ended!").foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
+                } else {
+                    Button(action: {
+                        showingAlertFinish = true
+                    }){
+                        HStack{
+                            Text("Finish Game").foregroundStyle(Color.white).font(.custom(FontsManager.Medium, size: 16))
+                        }.padding(.vertical, 12).padding(.horizontal, 45).contentShape(Rectangle())
+                    }
+                    .background(Color.accentColor)
+                    .cornerRadius(30)
                 }
-                .background(Color.accentColor)
-                .cornerRadius(30)
             }
             Spacer()
         }.padding(.horizontal, 50)
@@ -279,6 +284,8 @@ struct ScoreView: View {
         if (match.firstPlayerScore > match.secondPlayerScore){
             //firstPlayer is the winner
             match.ended = true
+            let drop = Drop(title: "Match Ended")
+            Drops.show(drop)
             matchesViewModel.editMatch(match: match)
             let nextStageMatch = nextRoundMatches.firstIndex(where: {$0.seeded == false})
             if (nextStageMatch != nil) {
@@ -303,6 +310,8 @@ struct ScoreView: View {
         } else if (match.secondPlayerScore > match.firstPlayerScore){
             //secondPlayer is the winner
             match.ended = true
+            let drop = Drop(title: "Match Ended")
+            Drops.show(drop)
             matchesViewModel.editMatch(match: match)
             let nextStageMatch = nextRoundMatches.firstIndex(where: {$0.seeded == false}) //matchesViewModel.getUnseededMatches(stage: MATCH_TYPE(rawValue: nextStage)!, seeded: false)
             if (nextStageMatch != nil) {
