@@ -12,7 +12,7 @@ struct ScoreView: View {
     @Binding var match : Match
     @Binding var nextRoundMatches : [Match]
     var blockSize : CGFloat = 85
-    var blockSizeSmall : CGFloat = 45
+    var blockSizeSmall : CGFloat = 35
     var statTextSize : CGFloat = 65
     @State var showingAlertFinish : Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -73,7 +73,7 @@ struct ScoreView: View {
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing).padding(.bottom, -10)
             }
             Spacer().frame(height: 70)
-            HStack{
+            HStack(spacing: 40){
                 VStack{
                     HStack(alignment: .center, spacing: 15){
                         Button(action: {
@@ -164,7 +164,7 @@ struct ScoreView: View {
                         }
                     }
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                Spacer().frame(minWidth: 20)
+                
                 VStack{
                     HStack(spacing: 15){
                         Button(action: {
