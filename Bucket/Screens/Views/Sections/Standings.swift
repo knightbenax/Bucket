@@ -111,13 +111,13 @@ struct Standings: View {
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading).sheet(isPresented: $showSettings){
             Settings(viewObserver: viewObserver)
         }.onChange(of: viewObserver.clearMatches, perform: { value in
-            if (value){
+            //if (value){
                 matches = [Match]()
                 secondRoundMatches = [Match]()
                 thirdRoundMatches = [Match]()
                 fourthRoundMatches = [Match]()
                 finalRoundMatches = [Match]()
-            }
+            //}
         }).onAppear {
             matches = matchViewModel.getMatches(stage: .FIRSTROUND)
             secondRoundMatches = matchViewModel.getMatches(stage: .SECONDROUND)

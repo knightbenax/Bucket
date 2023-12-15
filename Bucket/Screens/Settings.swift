@@ -76,6 +76,7 @@ struct Settings: View {
                                                         action: {
                                                             matchesViewModel.clearMatches()
                                                             viewObserver.clearMatches = true
+                                                            viewObserver.clearStats = true
                                                         }
                                                     )
                                     )
@@ -108,6 +109,7 @@ struct Settings: View {
                                                             matchesViewModel.clearMatches()
                                                             viewObserver.clearMatches = true
                                                             viewObserver.clearPlayers = true
+                                                            viewObserver.clearStats = true
                                                         }
                                                     )
                                     )

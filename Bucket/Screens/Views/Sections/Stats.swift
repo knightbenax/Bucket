@@ -44,11 +44,11 @@ struct Stats: View {
                         }.padding(.top, 115).padding(.horizontal, 10).frame(maxWidth: maxWidth)
                         LazyVGrid(columns: columns, spacing: 12) {
                             ForEach($scoreStats.prefix(3), id: \.id) { stat in
-                                SingleStat(stat: stat)
+                                SingleStat(stat: stat).frame(maxWidth: maxWidth)
                             }
                         }.padding(.bottom, 20)
                             .padding(.top, 10)
-                            .frame(maxWidth: maxWidth)
+                            
                         
                         HStack{
                             Text("3-Points").font(.custom(FontsManager.Regular, size: 16)).font(.custom(FontsManager.Regular, size: 16))
@@ -70,11 +70,11 @@ struct Stats: View {
                         }.padding(.horizontal, 10).padding(.top, 10).frame(maxWidth: maxWidth)
                         LazyVGrid(columns: columns, spacing: 12) {
                             ForEach($twoPointStats.prefix(3), id: \.id) { stat in
-                                SingleStat(stat: stat)
+                                SingleStat(stat: stat).frame(maxWidth: maxWidth)
                             }
                         }.padding(.bottom, 20)
                             .padding(.top, 10)
-                            .frame(maxWidth: maxWidth)
+                            
                         
                         HStack{
                             Text("Fouls").font(.custom(FontsManager.Regular, size: 16))
@@ -82,9 +82,9 @@ struct Stats: View {
                         }.padding(.horizontal, 10).padding(.top, 10).frame(maxWidth: maxWidth)
                         LazyVGrid(columns: columns, spacing: 12) {
                             ForEach($foulStats.prefix(3), id: \.id) { stat in
-                                SingleStat(stat: stat)
+                                SingleStat(stat: stat).frame(maxWidth: maxWidth)
                             }
-                        }.padding(.bottom, 20).padding(.top, 10).frame(maxWidth: maxWidth)
+                        }.padding(.bottom, 20).padding(.top, 10)
                         
                         
                         HStack{
@@ -93,10 +93,10 @@ struct Stats: View {
                         }.padding(.horizontal, 10).padding(.top, 10).frame(maxWidth: maxWidth)
                         LazyVGrid(columns: columns, spacing: 12) {
                             ForEach($blockStats.prefix(3), id: \.id) { stat in
-                                SingleStat(stat: stat)
+                                SingleStat(stat: stat).frame(maxWidth: maxWidth)
                             }
-                        }.padding(.bottom, 120).padding(.top, 10).frame(maxWidth: maxWidth)
-                    }.ignoresSafeArea()
+                        }.padding(.bottom, 120).padding(.top, 10)
+                    }.frame(minWidth: 0, maxWidth: .infinity).ignoresSafeArea()
                 }
                 VStack{
                     HStack{
@@ -115,7 +115,14 @@ struct Stats: View {
             }
         }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .leading).sheet(isPresented: $showSettings){
             Settings(viewObserver: viewObserver)
-        }.onAppear{
+        }.onChange(of: viewObserver.clearStats, perform: { value in
+
+            scoreStats = [Stat]()
+            threePointStats = [Stat]()
+            twoPointStats = [Stat]()
+            foulStats = [Stat]()
+            blockStats = [Stat]()
+        }).onAppear{
             loadStatsData()
         }
     }

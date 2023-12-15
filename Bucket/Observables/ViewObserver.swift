@@ -11,5 +11,6 @@ class ViewObserver : ObservableObject {
     
     @Published var clearPlayers = false
     @Published var clearMatches = false
+    @Published var clearStats = false
     
 }
