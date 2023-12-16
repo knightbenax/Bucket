@@ -17,6 +17,7 @@
 		EF13B5422B1E5FEA00F8A760 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF13B5402B1E5FEA00F8A760 /* LaunchScreen.storyboard */; };
 		EF13B54F2B1E61A200F8A760 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13B54E2B1E61A200F8A760 /* Home.swift */; };
 		EF13B5522B1E62B500F8A760 /* SingleStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF13B5512B1E62B500F8A760 /* SingleStanding.swift */; };
+		EF5F88F82B2E06F5007BC60F /* Winners.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F88F72B2E06F5007BC60F /* Winners.swift */; };
 		EF94BCF32B219C92005F52C5 /* StoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF22B219C92005F52C5 /* StoreHelper.swift */; };
 		EF94BCF52B22F7E8005F52C5 /* BottomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF42B22F7E8005F52C5 /* BottomNavBar.swift */; };
 		EF94BCF82B22FEB6005F52C5 /* FontsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */; };
@@ -64,6 +65,7 @@
 		EF13B5442B1E5FEA00F8A760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF13B54E2B1E61A200F8A760 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		EF13B5512B1E62B500F8A760 /* SingleStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleStanding.swift; sourceTree = "<group>"; };
+		EF5F88F72B2E06F5007BC60F /* Winners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Winners.swift; sourceTree = "<group>"; };
 		EF94BCF22B219C92005F52C5 /* StoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreHelper.swift; sourceTree = "<group>"; };
 		EF94BCF42B22F7E8005F52C5 /* BottomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavBar.swift; sourceTree = "<group>"; };
 		EF94BCF72B22FEB6005F52C5 /* FontsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsManager.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				EFE48C172B28C4FE009970F8 /* LoaderView.swift */,
 				EFE48C1E2B29AC26009970F8 /* ScoreView.swift */,
 				EFDC4C622B2B2312009C6EDA /* SingleStat.swift */,
+				EF5F88F72B2E06F5007BC60F /* Winners.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				EFE48C102B279EBC009970F8 /* AppConstants.swift in Sources */,
 				EFE48C0C2B279E3E009970F8 /* PlayerService.swift in Sources */,
 				EFF152112B27789F00734211 /* Player.swift in Sources */,
+				EF5F88F82B2E06F5007BC60F /* Winners.swift in Sources */,
 				EF13B5352B1E5FE900F8A760 /* SceneDelegate.swift in Sources */,
 				EFE48C092B278804009970F8 /* Match.swift in Sources */,
 			);

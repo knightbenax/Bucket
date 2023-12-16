@@ -27,10 +27,11 @@ struct SinglePlayer: View {
             SettingsDivider()
             HStack{
                 Text("\(getThreePoints()) Two Points").frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                Spacer().frame(width: 60)
+                //Spacer().frame(width: 60)
                 Text("\(getTwoPoints()) One Point").frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                Text("\(getBlocks()) Blocks").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                Text("\(getBlocks()) Blocks").frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                 Text("\(getFouls()) Fouls").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
+                Text("\(getGames()) Games").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }
         }.padding(15).background(Color("SingleBg")).clipShape(RoundedRectangle(cornerRadius: 15)).shadow(color: Color.black.opacity(colorScheme == .light ? 0.1 : 0.3), radius: 5).font(.custom(FontsManager.Regular, size: 16))
     }
@@ -69,6 +70,18 @@ struct SinglePlayer: View {
             }
         }
         return value
+    }
+    
+    func getGames() -> Int {
+        var value = 0
+        for match in matches {
+            if (match.firstPlayer == player.id){
+                value = value + 1
+            } else if (match.secondPlayer == player.id) {
+                value = value + 1
+            }
+        }
+        return value - 1
     }
     
     func getBlocks() -> Int {
