@@ -26,9 +26,9 @@ struct SinglePlayer: View {
             }
             SettingsDivider()
             HStack{
-                Text("\(getThreePoints()) Three Points").frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                Text("\(getThreePoints()) Two Points").frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 Spacer().frame(width: 60)
-                Text("\(getTwoPoints()) Two Points").frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                Text("\(getTwoPoints()) One Point").frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                 Text("\(getBlocks()) Blocks").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
                 Text("\(getFouls()) Fouls").frame(minWidth: 0, maxWidth: .infinity, alignment: .trailing)
             }

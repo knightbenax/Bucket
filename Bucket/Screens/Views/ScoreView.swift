@@ -355,8 +355,10 @@ struct ScoreView: View {
         if (!match.ended) {
             if (who == "first"){
                 match.firstPlayerScore += 1
+                match.firstTwoPoint += 1
             } else {
                 match.secondPlayerScore += 1
+                match.secondTwoPoint += 1
             }
             matchesViewModel.editMatch(match: match)
         }
@@ -367,10 +369,12 @@ struct ScoreView: View {
             if (who == "first"){
                 if (match.firstPlayerScore > 0){
                     match.firstPlayerScore -= 1
+                    match.firstTwoPoint -= 1
                 }
             } else {
                 if (match.secondPlayerScore > 0){
                     match.secondPlayerScore -= 1
+                    match.secondTwoPoint -= 1
                 }
             }
             matchesViewModel.editMatch(match: match)
@@ -381,10 +385,10 @@ struct ScoreView: View {
     func increaseThree(who: String){
         if (!match.ended) {
             if (who == "first"){
-                match.firstPlayerScore += 3
+                match.firstPlayerScore += 2
                 match.firstThreePoint += 1
             } else {
-                match.secondPlayerScore += 3
+                match.secondPlayerScore += 2
                 match.secondThreePoint += 1
             }
             matchesViewModel.editMatch(match: match)
@@ -395,15 +399,15 @@ struct ScoreView: View {
     func reduceThree(who: String){
         if (!match.ended) {
             if (who == "first"){
-                if (match.firstPlayerScore > 3){
-                    match.firstPlayerScore -= 3
+                if (match.firstPlayerScore > 2){
+                    match.firstPlayerScore -= 2
                 }
                 if (match.firstThreePoint > 0){
                     match.firstThreePoint -= 1
                 }
             } else {
-                if (match.secondPlayerScore > 3){
-                    match.secondPlayerScore -= 3
+                if (match.secondPlayerScore > 2){
+                    match.secondPlayerScore -= 2
                 }
                 if (match.secondThreePoint > 0){
                     match.secondThreePoint -= 1
@@ -417,10 +421,10 @@ struct ScoreView: View {
     func increaseTwo(who: String){
         if (!match.ended) {
             if (who == "first"){
-                match.firstPlayerScore += 2
+                match.firstPlayerScore += 1
                 match.firstTwoPoint += 1
             } else {
-                match.secondPlayerScore += 2
+                match.secondPlayerScore += 1
                 match.secondTwoPoint += 1
             }
             matchesViewModel.editMatch(match: match)
@@ -430,15 +434,15 @@ struct ScoreView: View {
     func reduceTwo(who: String){
         if (!match.ended) {
             if (who == "first"){
-                if (match.firstPlayerScore > 2){
-                    match.firstPlayerScore -= 2
+                if (match.firstPlayerScore > 1){
+                    match.firstPlayerScore -= 1
                 }
                 if (match.firstTwoPoint > 0){
                     match.firstTwoPoint -= 1
                 }
             } else {
-                if (match.secondPlayerScore > 2){
-                    match.secondPlayerScore -= 2
+                if (match.secondPlayerScore > 1){
+                    match.secondPlayerScore -= 1
                 }
                 if (match.secondTwoPoint > 0){
                     match.secondTwoPoint -= 1

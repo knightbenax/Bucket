@@ -51,7 +51,7 @@ struct Stats: View {
                             
                         
                         HStack{
-                            Text("3-Points").font(.custom(FontsManager.Regular, size: 16)).font(.custom(FontsManager.Regular, size: 16))
+                            Text("2-Points").font(.custom(FontsManager.Regular, size: 16)).font(.custom(FontsManager.Regular, size: 16))
                             Spacer()
                         }.padding(.horizontal, 10).padding(.top, 10).frame(maxWidth: maxWidth)
                         
@@ -65,7 +65,7 @@ struct Stats: View {
                         
                         
                         HStack{
-                            Text("2-Points").font(.custom(FontsManager.Regular, size: 16))
+                            Text("1-Point").font(.custom(FontsManager.Regular, size: 16))
                             Spacer()
                         }.padding(.horizontal, 10).padding(.top, 10).frame(maxWidth: maxWidth)
                         LazyVGrid(columns: columns, spacing: 12) {
