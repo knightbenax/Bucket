@@ -60,7 +60,7 @@ struct BottomNavBar: View {
                 }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center).padding(.vertical, verticalPadding).padding(.top, topPadding).padding(.horizontal)
             }.background(.ultraThinMaterial).foregroundStyle(Color.label).overlay(
                 RoundedRectangle(cornerRadius: 30)
-                    .stroke(Color.label.opacity(0.5), lineWidth: 0.2)
+                    .stroke(Color.label.opacity(0.5), lineWidth: 1)
             ).clipShape(RoundedRectangle(cornerRadius: 30))
                 .shadow(color: Color.black.opacity(0.06), radius: 15)
             HStack{
